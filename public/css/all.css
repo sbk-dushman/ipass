@@ -19,8 +19,19 @@
        margin: 0;
         padding: 0;
     }
+
+
+    .group-title::before{
+        content: "";
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        position: absolute;
+    }
     .group-card {
     height: 151px;
+    position: relative;
     width: 22%;
     text-align: center;
     padding: 0;
@@ -102,6 +113,10 @@
      padding: 6px 20px;
     } */
     /* здесь */
+    .main-comtent{
+            padding: 20px 20px;
+}
+
     .tab-content {
          position: absolute;
         /* border: 1px solid #666; */
@@ -114,13 +129,9 @@
         /* height: 247px; */
         transform: translateX(18%);
     }
-    .main-feed .grouppy {
-        text-align: left;
-        padding-left: 40px;
-        padding-top: 10px;
-    }
-    .main-feed .grouppy .title_group {
-        text-align: left;
+    .arrow-icon{
+        width: 30px;
+        height: 30px;
     }
     .main-feed .grouppy .title_group h3 {
         padding-left: 20px;

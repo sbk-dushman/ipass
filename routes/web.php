@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/','Maincontroller@home')->name('home-URL');
+Route::get('/','MainController@home')->name('home-URL');
+Route::get('/group','MainController@group')->name('group-URL');
 
-Route::get('/{group}', function () {
 
-    return view('home');
-});

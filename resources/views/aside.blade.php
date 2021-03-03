@@ -27,22 +27,22 @@
                 <hr class="hr">
                 <div class="group-container">
                 <div class="group-card">
-                    <a href="#">1</a>
+                    <a class="group-title" href="{{route('group-URL')}}">1</a>
                 </div>
                 <div class="group-card">
-                    <a href="#">2</a>
+                    <a class="group-title" href="#">2</a>
                 </div>
                 <div class="group-card">
-                    <a href="#">3</a>
+                    <a class="group-title" href="#">3</a>
                 </div>
                 <div class="group-card">
-                    <a href="#">21ee2e2e2e2e2e2</a>
+                    <a class="group-title" href="#">21ee2e2e2e2e2e2</a>
                 </div>
                 <div class="group-card">
-                    <a href="#">5</a>
+                    <a class="group-title" href="#">5</a>
                 </div>
                 <div class="group-card">
-                    <a href="#">6</a>
+                    <a class="group-title" href="#">6</a>
                 </div>
                 </div>
 

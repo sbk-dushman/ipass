@@ -3,15 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App/Group;
+use App\Group;
 
 class MainController extends Controller
 {
 
 
-    public function home($code)
-    {
-        $group = Group::where('code', $code)->first();
-        return view('home',compact('group'));
+    public function home(){
+
+        return view('home');
+    }
+    public function group(){
+        return view('group');
     }
 }
