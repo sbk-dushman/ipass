@@ -16,4 +16,7 @@ class MainController extends Controller
     public function group(){
         return view('group');
     }
+    public function selected(){
+        return view('selected');
+    }
 }

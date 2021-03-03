@@ -1,9 +1,8 @@
 @extends('master')
 @section('content')
 <div class="main-comtent">
-
-     <ul class="about-students list">
-                   <a href="{{ route('home-URL') }}">
+    <div class="main-comtent__header">
+                 <a class="step-back" href="{{ route('home-URL') }}">
              <svg class="arrow-icon" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	            viewBox="0 0 447.243 447.243" style="enable-background:new 0 0 447.243 447.243;" xml:space="preserve">
 				<g>
@@ -47,7 +46,10 @@
 			<g>
 			</g>
 </svg>
-</a> <h2>Студенты</h2>
+</div>
+</a>   <h2 class="main-title">Студенты</h2>
+     <ul class="about-students list">
+
                <li class="list__item">
                    <button class="select-btn">&#10010;</button>
                    <span class="lable">ФИО:</span></li>
