@@ -22,8 +22,8 @@
 .main-title{
     text-align: center;
 }
-.main-comtent__header{
-display: flex;
+    .main-comtent__header{
+    display: flex;
 }
     .group-title::before{
         content: "";
