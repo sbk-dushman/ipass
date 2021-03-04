@@ -47,7 +47,8 @@
 			</g>
 </svg>
 </div>
-</a>   <h2 class="main-title">Студенты</h2>
+</a>
+<h2 class="main-title">Студенты</h2>
      <ul class="about-students list">
 
                <li class="list__item">
@@ -77,7 +78,7 @@
                    <button class="select-btn">&#10010;</button>
                    <span class="lable">ФИО:</span>wddwdwd
                 </li>
-        </ul>
+    </ul>
 </div>
 
 @endsection

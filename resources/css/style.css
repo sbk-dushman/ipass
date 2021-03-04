@@ -18,7 +18,20 @@
        margin: 0;
         padding: 0;
     }
-
+.main-btn{
+    background-color: transparent;
+    border:none;
+    height: 20px;
+    width: 20px;
+    padding: 5px;
+    color:  #629cd1;
+    cursor: pointer;
+}
+.main-btn>svg{
+    max-width: 100%;
+    object-fit: cover;
+    max-height: 100%;
+}
 .main-title{
     text-align: center;
 }
@@ -164,10 +177,20 @@
 .list__item{
     margin-bottom: 10px;
 }
+
+.select-list>.list__item{
+    display: flex;
+        align-items: center;
+}
+.select-list>.list__item form{
+    padding: 0 6px;
+}
 .select-btn{
     margin-right: 10px;
 }
-
+.select-section__btn-remove{
+    width: 82px;
+}
 .pagination{
     padding-top: 60px;
     display: inline-flex;
