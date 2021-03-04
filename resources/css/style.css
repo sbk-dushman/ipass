@@ -18,11 +18,12 @@
        margin: 0;
         padding: 0;
     }
+
 .main-btn{
     background-color: transparent;
     border:none;
-    height: 20px;
-    width: 20px;
+    height: 23px;
+    width: 30px;
     padding: 5px;
     color:  #629cd1;
     cursor: pointer;
@@ -180,10 +181,13 @@
 
 .select-list>.list__item{
     display: flex;
-        align-items: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .select-list>.list__item form{
     padding: 0 6px;
+    font-size: 20px;
 }
 .select-btn{
     margin-right: 10px;

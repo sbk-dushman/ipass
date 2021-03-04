@@ -1,5 +1,6 @@
 require('./bootstrap');
-    let tabs = document.querySelector('.main-sidebar');
+
+let tabs = document.querySelector('.main-sidebar');
 let btns = tabs.querySelectorAll('.tab-btn');
 let items = tabs.querySelectorAll('.content-list__item');
 

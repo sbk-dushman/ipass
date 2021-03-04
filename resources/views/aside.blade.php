@@ -108,12 +108,17 @@
 
         <li class="content-list__item tab-content">
             <div class="search">
-                <div class="main-feed">
-                    <h1>Поиск</h1>
-                    <input class="serch-input" type="text">
-                    <button> Найти </button>
+                <div class="main-content">
+                    <h2 class="man-title">Поиск</h2>
+                    <form action="/api.php">
+                       <input class="search-input" name="search-req" type="text">
+                    <button сlass="search-btn" type="submit"> Найти </button>
+                        @csrf
+                </form>
                     <div class="serch-output">
-                        wqdqd
+                        <?php
+                          $search_REQ;
+                        ?>
                     </div>
                 </div>
             </div>
