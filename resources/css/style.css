@@ -22,6 +22,9 @@
 .main-title{
     text-align: center;
 }
+.main-comtent__header{
+display: flex;
+}
     .group-title::before{
         content: "";
         left: 0;
