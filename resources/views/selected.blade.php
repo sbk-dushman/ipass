@@ -1,7 +1,7 @@
 @extends('master')
 @section('content')
 <div class="main-comtent">
-   <div class="main-comtent__header">
+   <div class="main-content__header">
 
 
             <a class="step-back" href="{{ route('home-URL') }}">

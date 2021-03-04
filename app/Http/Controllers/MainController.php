@@ -19,4 +19,8 @@ class MainController extends Controller
     public function selected(){
         return view('selected');
     }
+    public function dropFile(Type $var = null)
+    {
+        return view('dropFile');
+    }
 }

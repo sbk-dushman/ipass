@@ -36,7 +36,7 @@
 .main-title{
     text-align: center;
 }
-    .main-comtent__header{
+    .main-content__header{
     display: flex;
 }
     .group-title::before{
@@ -131,7 +131,7 @@
      padding: 6px 20px;
     } */
     /* здесь */
-    .main-comtent{
+    .main-content{
         padding: 20px 20px;
         width: 100%;
 }

@@ -1,6 +1,6 @@
 @extends('master')
 @section('content')
-<div class="main-comtent">
+<div class="main-content">
     <div class="main-comtent__header">
                  <a class="step-back" href="{{ route('home-URL') }}">
              <svg class="arrow-icon" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
