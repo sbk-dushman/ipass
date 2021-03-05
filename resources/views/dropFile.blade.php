@@ -51,10 +51,16 @@
     </a>
 
    </div>
+    <h2 class="main-title">Загрузка файлов</h2>
+    <div class="drop-area" id="drop-area">
+        <form action="/upload.php" method="post">
+            @csrf
+        <input type="file" id="fileElem" multiple accept="image/*">
 
- <h2 class="main-title">Загрузка файлов</h2>
-   <form action="">
-       <input type="file">
    </form>
+
+    </div>
+
+
 
 @endsection
