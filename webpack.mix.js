@@ -14,5 +14,7 @@ mix.styles([
     'resources/css/style.css',
     'resources/css/m_style.css',
 ], 'public/css/all.css');
-mix.js('resources/js/app.js', 'public/js')
+mix.js(['resources/js/app.js',
+        'resources/js/jquery-3.6.0.js'
+    ],'public/js/app.js');
 //     .sass('resources/sass/app.scss', 'public/css');

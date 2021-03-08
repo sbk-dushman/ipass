@@ -1,8 +1,65 @@
 require('./bootstrap');
-let dropArea = document.getElementById('drop-area');
+function declOfNum(number, titles) {
+  cases = [2, 0, 1, 1, 1, 2];
+  return titles[(number % 100 > 4 && number % 100 < 20) ? 2 : cases[(number % 10 < 5) ? number % 10 : 5]];
+}
+// require('./jquery-3.6.0.js');
+// $(document).ready(function() {
+//     var dropArea = $('#drop-area'),
+//         maxFileSize = 1000000; // максимальный размер файла - 1 мб.
+//         if (typeof(window.FileReader) == 'undefined') {
+//             dropArea.text('Не поддерживается браузером!');
+//             dropArea.addClass('error');
+//         }
+//         dropArea[0].ondragover = function() {
+//             dropArea.addClass('is-active');
+//             return false;
+//         };
+
+//         dropArea[0].ondragleave = function() {
+//             dropArea.removeClass('is-active');
+//             return false;
+//         };
+//         dropArea[0].ondrop = function(event) {
+//             event.preventDefault();
+//             dropArea.removeClass('is-active');
+//             dropArea.addClass('is-active');
+//             console.log(file +"wqdsw")
+//             var file = event.dataTransfer.files[0];
+//             console.log(file);
+
+//             if (file.size > maxFileSize) {
+//                 dropArea.text('Файл слишком большой!');
+//                 dropArea.addClass('error');
+//                 return false;
+//             }
+//         };
+//             var xhr = new XMLHttpRequest();
+//             xhr.upload.addEventListener('progress', uploadProgress, false);
+//             xhr.onreadystatechange = stateChange;
+//             xhr.open('POST', '/upload.php');
+//             xhr.setRequestHeader('X-FILE-NAME', file.name);
+//             xhr.send(file);
+
+//             function uploadProgress(event) {
+//                 var percent = parseInt(event.loaded / event.total * 100);
+//                 dropArea.text('Загрузка: ' + percent + '%');
+//             }
+//             function stateChange(event) {
+//                 if (event.target.readyState == 4) {
+//                     if (event.target.status == 200) {
+//                         dropArea.text('Загрузка успешно завершена!');
+//                     } else {
+//                         dropArea.text('Произошла ошибка!');
+//                         dropArea.addClass('error');
+//                     }
+//                 }
+//             }
+// });
+
 if (document.querySelector('.main-sidebar')!=null) {
     let tabs = document.querySelector('.main-sidebar');
-    let btns = tabs.querySelectorAll('.tab-btn');
+    let btns = tabs.querySelectorAll('.tab-list__item');
     let items = tabs.querySelectorAll('.content-list__item');
 
 
@@ -22,50 +79,30 @@ if (document.querySelector('.main-sidebar')!=null) {
     console.log('Слайдер скрыт');
 }
 // дроп файлов
-function handleFiles(files) {
-     for (var i = 0; i < files.length; i++) {
-        uploadFile(files[i]); // call the function to upload the file
-    }
-}
+var $fileInput = $('.file-input');
+var $droparea = $('#drop-area');
 
-['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
-    dropArea.addEventListener(eventName, preventDefaults, false)
-})
-function preventDefaults(e) {
-    e.preventDefault()
-    e.stopPropagation()
-};
-['dragenter', 'dragover'].forEach(eventName => {
-    dropArea.addEventListener(eventName, highlight, false)
+// highlight drag area
+$fileInput.on('dragenter focus click', function() {
+  $droparea.addClass('is-active');
 });
 
-function highlight(e) {
-    dropArea.classList.add('is-active')
-}
-function unhighlight(e) {
-    dropArea.classList.remove('is-active')
-}
-dropArea.addEventListener('drop', handleDrop, false)
-function handleDrop(e) {
-    let dt = e.dataTransfer
-    let files = dt.files
-    handleFiles(files)
-}
+// back to normal state
+$fileInput.on('dragleave blur drop', function() {
+  $droparea.removeClass('is-active');
+});
 
-function uploadFile(file) {
-    var url = '/upload`'
-    var xhr = new XMLHttpRequest()
-    var formData = new FormData()
-    xhr.open('POST', url, true)
-    xhr.addEventListener('readystatechange', function (e) {
-        if (xhr.readyState == 4 && xhr.status == 200) {
-            console.log('qewded');
-        }
-        else if (xhr.readyState == 4 && xhr.status != 200) {
-            console.log('ошибка');
-        }
-    })
+// change inner text
+$fileInput.on('change', function() {
+  var filesCount = $(this)[0].files.length;
+  var $textContainer = $(this).prev();
 
-    formData.append('file', file)
-    xhr.send(formData)
-}
+  if (filesCount === 1) {
+    // if single file is selected, show file name
+    var fileName = $(this).val().split('\\').pop();
+    $textContainer.text(fileName);
+  } else {
+    // otherwise show number of files
+    $textContainer.text(`${'Выбрано: '+ ' '+filesCount + declOfNum(filesCount, [' Файл ', ' Файла ', ' файлов '])}`);
+  }
+});

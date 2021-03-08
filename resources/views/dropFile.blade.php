@@ -55,7 +55,12 @@
     <div class="drop-area" id="drop-area">
         <form action="/upload.php" method="post">
             @csrf
-        <input type="file" id="fileElem" multiple accept="image/*">
+           <div class="">
+            <span class="fake-btn main-btn">Выбрать файл</span>
+            <span class="file-msg">Перетащите сюда нужный файл</span>
+            <input class="file-input" type="file" multiple>
+           </div>
+            <button type="submit" class="main-btn">Отправить</button>
 
    </form>
 

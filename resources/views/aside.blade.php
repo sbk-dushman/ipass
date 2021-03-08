@@ -2,21 +2,23 @@
     <div class="title">
         <h1>УКСИВТ</h1>
     </div>
-    <ul class="tab-btn-list">
-        <li class="div Group-link tab tab-btn  is-active">
-            <!-- <button> -->
-                Группы
-            <!-- </button>  -->
+    <ul class="tab-list">
+        <li class="tab-list__item tab tab-btn  is-active">
+
+            Группы
         </li>
-        <li class="div Search-link tab tab-btn">
+        <li class="tab-list__item">
             Поиск
         </li>
-        <li class="div Users-link tab tab-btn">
-           Пользователи
+        <li class="tab-list__item">
+            <a class="tab-title" href="{{route('selected-URL')}}">Выбранное</a>
         </li>
-        <li class="div Sync-libk tab">
-                <a class="tab-title" href="">Синхронизация</a>
+        <li class="tab-list__item">
+            <a class="tab-title" href="{{route('drop-file')}}">Загрузить файлы</a>
         </li>
+        <li class="tab-list__item">
+            <a class="tab-title" href="">Синхронизация</a>
+    </li>
     </ul>
     <ul class="content-list">
         <li class="content-list__item tab-content is-active">
