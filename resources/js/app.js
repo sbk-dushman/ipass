@@ -60,6 +60,27 @@ $(document).ready(function() {
         $(this).closest('.select-list__item').remove();
     });
 });
+// поисковой запрос
+let add = document.querySelector('.search-btn');
+let doName = document.querySelector('.search-input');
+let doList = document.querySelector('.serch-output');
+
+add.addEventListener('click', function (ev) {
+    ev.preventDefault();
+    let myDO = document.createElement('li');
+
+    switch (true) {
+        case doName.value == '':
+            alert('Заполните поле!');
+            break;
+
+        default:
+            myDO.innerHTML = doName.value;
+            doList.appendChild(myDO);
+            doName.value = '';
+            break;
+    }
+})
 
 
 //     var dropArea = $('#drop-area'),
