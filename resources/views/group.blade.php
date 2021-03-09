@@ -1,6 +1,7 @@
 @extends('master')
 @section('content')
 <div class="main-content">
+
    <div class="main-content__header">
 
 
@@ -52,34 +53,32 @@
 
    </div>
 
- <h2 class="main-title">Состав группы</h2>
+	<h2 class="main-title">Состав группы</h2>
     <table class="main-content select-list">
         {{-- <caption></caption> --}}
-    <tr>
-        <th>Выбрать:</th>
-        <th>Фамилия:</th>
-        <th>Имя:</th>
-        <th>Отчество:</th>
-    </tr>
-        <tr class="select-list__item">
-            <td>
-                <input type="checkbox">
-            </td>
-                <td>
-                   Иванов
-                </td>
-                <td>
-                    Иван
+		<tr>
+			<th>Выбрать:</th>
+			<th>Фамилия:</th>
+			<th>Имя:</th>
+			<th>Отчество:</th>
+		</tr>
+		@foreach($students as $student)
+			<tr class="select-list__item">
+				<td>
+					<input type="checkbox">
+				</td>
+				<td>
+					{{ $student->surname }}
+				</td>
+				<td>
+					{{ $student->name }}
 
-                </td>
-                <td>
-                    Иванович
-
-                </td>
-
-        </tr>
-
-  </table>
-
+				</td>
+				<td>
+					{{ $student->lastname }}
+				</td>
+			</tr>
+		@endforeach
+  	</table>
 </div>
 @endsection
