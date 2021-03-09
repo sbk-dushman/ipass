@@ -14,6 +14,7 @@ class MainController extends Controller
     }
     public function group($groupname)
     {
+
         $students = ListStudent::where('group', $groupname)->get();
         return view('group', compact('students'));
     }
@@ -21,7 +22,7 @@ class MainController extends Controller
 
         return view('selected');
     }
-    public function dropFile(Type $var = null)
+    public function dropFile($var = null)
     {
         return view('dropFile');
     }
