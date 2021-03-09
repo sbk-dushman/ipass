@@ -32,8 +32,8 @@
                         <div class="group-container">
                         @foreach( $groups as $group )
                               <div class="group-card">
-                                    <a 
-                                          class="group-title" 
+                                    <a
+                                          class="group-title"
                                           href="{{route('group-URL')}}{{$group->codegroup}}"
                                     >
                                           {{$group->group}}
@@ -41,18 +41,18 @@
                               </div>
                         @endforeach
                   </div>
-
-                  <ul class="pagination">
+                  @if ($groups->total() > $groups->count())
+                   <ul class="pagination">
                     <li class="pagination__item">
-                        <a href="#">1</a>
+                        {{$groups->links()}}
                     </li>
-                    <li class="pagination__item">
+                    {{-- <li class="pagination__item">
                         <a href="#">2</a>
                     </li>
                     <li class="pagination__item">
                         <a href="#">3</a>
-                    </li>
-                    <li class="pagination__item">
+                    </li> --}}
+                    {{-- <li class="pagination__item">
                         <a href="#">След...
                         <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
                             y="0px" width="284.935px" height="284.936px" viewBox="0 0 284.935 284.936"
@@ -96,8 +96,10 @@
                             </g>
                         </svg>
                     </a>
-                    </li>
+                    </li> --}}
                 </ul>
+
+                  @endif
 
             </li>
 

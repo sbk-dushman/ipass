@@ -9,7 +9,9 @@ use App\ListStudent;
 class MainController extends Controller
 {
     public function home(){
-        $groups = Group::get();
+        // $groups = Group::get();
+        $groups = Group::paginate(2);
+        // dd($paginator);
         return view('home', compact('groups'));
     }
     public function group($groupname)
