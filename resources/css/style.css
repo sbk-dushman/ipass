@@ -38,7 +38,7 @@ body, html{
         opacity: 1;
         transition: 0.3s  opacity;
 }
-.main-btn>svg{
+.main-btn>svg,.select-section__btn-remove>svg,.select-section__btn-print>svg{
     max-width: 100%;
     object-fit: cover;
     max-height: 100%;
@@ -48,6 +48,15 @@ body, html{
 }
 .main-content__header{
     display: flex;
+}
+.select-section__btn-remove,.select-section__btn-print{
+      width: 35px;
+    height: 25px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s  opacity;
+
 }
 .file-msg{
     padding: 0 5px;
@@ -234,9 +243,7 @@ body, html{
 .select-btn{
     margin-right: 10px;
 }
-.select-section__btn-remove{
-    width: 82px;
-}
+
 .pagination{
     padding-top: 60px;
     display: inline-flex;
@@ -248,7 +255,7 @@ body, html{
     border:  1px solid #629cd1;
     transition: 0.3s  opacity;
 }
-.pagination__item a:hover,.main-btn:hover,.group-title:hover{
+.pagination__item a:hover,.main-btn:hover,.group-title:hover,.select-section__btn-print:hover,.select-section__btn-remove:hover{
     opacity: 0.5;
 }
 .pagination__item svg{
