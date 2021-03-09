@@ -52,7 +52,7 @@
         </a>
    </div>
 
-	<h2 class="main-title">Состав группы</h2>
+	    <h2 class="main-title">Состав группы</h2>
     <table class="main-content select-list">
         {{-- <caption></caption> --}}
 		<tr>
