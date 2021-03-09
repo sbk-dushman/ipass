@@ -25,22 +25,27 @@
     <ul class="content-list">
         <li class="content-list__item tab-content is-active">
 
-                <div class="title-group">
+                  <div class="title-group">
                     <h3>Список групп</h3>
-                </div>
-                <hr class="hr">
-                <div class="group-container">
+                  </div>
+                  <hr class="hr">
+                  <div class="group-container">
                         @foreach( $groups as $group )
                               <div class="group-card">
                                     <a 
                                           class="group-title" 
-                                          href="{{route('group-URL')}}{{ $group->codegroup }}"
+                                          href="{{
+                                                route('group-URL')
+                                          }}
+                                          {{ 
+                                                $group->codegroup 
+                                          }}"
                                     >
                                           {{$group->group}}
                                     </a>
                               </div>
                         @endforeach
-                </div>
+                  </div>
 
                 <ul class="pagination">
                     <li class="pagination__item">
