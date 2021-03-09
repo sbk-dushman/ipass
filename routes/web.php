@@ -12,7 +12,7 @@
 */
 
 Route::get('/','MainController@home')->name('home-URL');
-Route::get('/group','MainController@group')->name('group-URL');
+Route::get('/group{groupname?}','MainController@group')->name('group-URL');
 Route::get('/selected','MainController@selected')->name('selected-URL');
 Route::get('/drop-file','MainController@dropFile')->name('drop-file');
 

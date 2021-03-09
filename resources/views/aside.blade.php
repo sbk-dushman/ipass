@@ -28,24 +28,29 @@
                 </div>
                 <hr class="hr">
                 <div class="group-container">
-                <div class="group-card">
-                    <a class="group-title" href="{{route('group-URL')}}">1</a>
-                </div>
-                <div class="group-card">
-                    <a class="group-title" href="#">2</a>
-                </div>
-                <div class="group-card">
-                    <a class="group-title" href="#">3</a>
-                </div>
-                <div class="group-card">
-                    <a class="group-title" href="#">21ee2e2e2e2e2e2</a>
-                </div>
-                <div class="group-card">
-                    <a class="group-title" href="#">5</a>
-                </div>
-                <div class="group-card">
-                    <a class="group-title" href="#">6</a>
-                </div>
+                    @foreach( $groups as $group )
+                        <div class="group-card">
+                            <a class="group-title" href="{{route('group-URL')}}">{{$group}}</a>
+                        </div>
+                    @endforeach
+                    <div class="group-card">
+                        <a class="group-title" href="{{route('group-URL')}}">1</a>
+                    </div>
+                    <div class="group-card">
+                        <a class="group-title" href="#">2</a>
+                    </div>
+                    <div class="group-card">
+                        <a class="group-title" href="#">3</a>
+                    </div>
+                    <div class="group-card">
+                        <a class="group-title" href="#">21ee2e2e2e2e2e2</a>
+                    </div>
+                    <div class="group-card">
+                        <a class="group-title" href="#">5</a>
+                    </div>
+                    <div class="group-card">
+                        <a class="group-title" href="#">6</a>
+                    </div>
                 </div>
 
                 <ul class="pagination">

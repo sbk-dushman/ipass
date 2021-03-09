@@ -50,34 +50,12 @@
 </a>
 <h2 class="main-title">Студенты</h2>
      <ul class="about-students list">
-
-               <li class="list__item">
-                   <button class="select-btn">&#10010;</button>
-                   <span class="lable">ФИО:</span></li>
-               <li class="list__item">
-                   <button class="select-btn">&#10010;</button>
-                   <span class="lable">ФИО:</span>
-                </li>
-               <li class="list__item">
-
-                   <button class="select-btn">&#10010;</button>
-                   <span class="lable">ФИО:</span></li>
-               <li class="list__item">
-                   <button class="select-btn">&#10010;</button>
-                   <span class="lable">ФИО:</span>
-                </li>
-               <li class="list__item">
-                   <button class="select-btn">&#10010;</button>
-                   <span class="lable">ФИО:</span>
-                </li>
-               <li class="list__item">
-
-                   <button class="select-btn">&#10010;</button>
-                   <span class="lable">ФИО:</span></li>
-               <li class="list__item">
-                   <button class="select-btn">&#10010;</button>
-                   <span class="lable">ФИО:</span>wddwdwd
-                </li>
+		@foreach($students as $student)
+			<li class="list__item">
+				<span class="lable">ФИО: {{ $student->name }}</span>
+			</li>
+		@endforeach
+		<button class="select-btn">&#10010;</button>
     </ul>
 </div>
 
