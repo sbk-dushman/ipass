@@ -1,45 +1,40 @@
 @extends('master')
 @section('content')
 <nav class="main-sidebar">
-    <div class="title">
-        <h1>УКСИВТ</h1>
-    </div>
-    <ul class="tab-list">
-        <li class="tab-list__item tab tab-btn  is-active">
+      <div class="title">
+            <h1>УКСИВТ</h1>
+      </div>
+      <ul class="tab-list">
+            <li class="tab-list__item tab tab-btn  is-active">
 
-            Группы
-        </li>
-        <li class="tab-list__item">
-            Поиск
-        </li>
-        <li class="tab-list__item">
-            <a class="tab-title" href="{{route('selected-URL')}}">Выбранное</a>
-        </li>
-        <li class="tab-list__item">
-            <a class="tab-title" href="{{route('drop-file')}}">Загрузить файлы</a>
-        </li>
-        <li class="tab-list__item">
-            <a class="tab-title" href="">Синхронизация</a>
-    </li>
-    </ul>
-    <ul class="content-list">
-        <li class="content-list__item tab-content is-active">
+                  Группы
+            </li>
+            <li class="tab-list__item">
+                  Поиск
+            </li>
+            <li class="tab-list__item">
+                  <a class="tab-title" href="{{route('selected-URL')}}">Выбранное</a>
+            </li>
+            <li class="tab-list__item">
+                  <a class="tab-title" href="{{route('drop-file')}}">Загрузить файлы</a>
+            </li>
+            <li class="tab-list__item">
+                  <a class="tab-title" href="">Синхронизация</a>
+      </li>
+      </ul>
+      <ul class="content-list">
+            <li class="content-list__item tab-content is-active">
 
                   <div class="title-group">
                         <h3>Список групп</h3>
                   </div>
                   <hr class="hr">
-                  <div class="group-container">
+                        <div class="group-container">
                         @foreach( $groups as $group )
                               <div class="group-card">
                                     <a 
                                           class="group-title" 
-                                          href="{{
-                                                route('group-URL')
-                                          }}
-                                          {{ 
-                                                $group->codegroup 
-                                          }}"
+                                          href="{{route('group-URL')}}{{$group->codegroup}}"
                                     >
                                           {{$group->group}}
                                     </a>
