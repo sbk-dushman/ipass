@@ -122,11 +122,9 @@
                     <button сlass="search-btn" type="submit"> Найти </button>
                         @csrf
                 </form>
-                    <div class="serch-output">
-                        <?php
-                          $search_REQ;
-                        ?>
-                    </div>
+                    <ul class="serch-output">
+
+                    </ul>
                 </div>
             </div>
         </li>
