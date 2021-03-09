@@ -26,7 +26,7 @@
         <li class="content-list__item tab-content is-active">
 
                   <div class="title-group">
-                    <h3>Список групп</h3>
+                        <h3>Список групп</h3>
                   </div>
                   <hr class="hr">
                   <div class="group-container">
@@ -47,7 +47,7 @@
                         @endforeach
                   </div>
 
-                <ul class="pagination">
+                  <ul class="pagination">
                     <li class="pagination__item">
                         <a href="#">1</a>
                     </li>

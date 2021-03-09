@@ -8,8 +8,6 @@ use App\ListStudent;
 
 class MainController extends Controller
 {
-
-
     public function home(){
         $groups = Group::get();
         return view('home', compact('groups'));
