@@ -63,6 +63,7 @@
 			<th>Отчество:</th>
 		</tr>
 		@foreach($students as $student)
+
 			<tr class="select-list__item">
                 <form 
                     class="add-to-selected-list" 
@@ -96,6 +97,7 @@
                         </div>
                     </td>
                     <td>
+
                         {{ $student->surname }}
                     </td>
                     <td>
@@ -104,6 +106,7 @@
                     <td>
                         {{ $student->lastname }}
                     </td>
+                    
                 </form>
 			</tr>
 		@endforeach

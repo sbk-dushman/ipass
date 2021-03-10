@@ -61,13 +61,15 @@ class MainController extends Controller
     public function selected()
     {
         $studentDatas = CardStudent::get();
-        dump($studentDatas);
+        // dump($studentDatas);
         return view('selected', compact('studentDatas'));
     }
 
     public function selectedDelete(Request $request)
     {
-        dump($request->all());
+        $studId = $request->issetStud;
+        CardStudent::where('id', $studId)->delete();
+        return redirect()->back();
     }
 
     public function dropFile($var = null)
