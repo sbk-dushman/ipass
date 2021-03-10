@@ -195,7 +195,9 @@ body, html{
         padding: 20px 20px;
         width: 100%;
 }
-
+.pagination li{
+    margin: 0 5px;
+}
 
     .tab-content {
          position: absolute;
