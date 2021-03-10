@@ -15,8 +15,9 @@
 
 Route::get('/','MainController@home')->name('home-URL');
 Route::get('/group{groupname?}','MainController@group')->name('group-URL');
-Route::post('/group{groupname?}','MainController@addCart')->name('group-URL');
+Route::post('/group{groupname?}','MainController@addCart');
 Route::get('/selected','MainController@selected')->name('selected-URL');
+Route::post('/selected','MainController@selectedDelete');
 Route::get('/drop-file','MainController@dropFile')->name('drop-file');
 
 
