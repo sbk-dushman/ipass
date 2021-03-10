@@ -47,23 +47,29 @@ class MainController extends Controller
         return redirect()->back();
     }
 
-    public function group($groupname)
+    public function group($groupname, Request $request)
     {
 
         $students = ListStudent::where('group', $groupname)->get();
-        // $emptyCart = CardStudent::where([
-        //     'name' => $this->StudName,
-        //     'surname' => $this->StudSurname,
-        //     'lastname' => $this->StudLastname,
-        //     'group' => $this->StudGroup
-        // ])->get('id');
-        return view('group', compact('students'));
+        $cartStudents = CardStudent::get();
+        // dump($cartStudents);
+        
+
+        return view('group', compact('students', 'cartStudents'));
     }
 
     public function selected()
     {
         $studentDatas = CardStudent::get();
+        // dump($studentDatas);
         return view('selected', compact('studentDatas'));
+    }
+
+    public function selectedDelete(Request $request)
+    {
+        $studId = $request->issetStud;
+        CardStudent::where('id', $studId)->delete();
+        return redirect()->back();
     }
 
     public function dropFile($var = null)

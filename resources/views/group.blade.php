@@ -56,31 +56,48 @@
     <table class="main-content select-list">
         {{-- <caption></caption> --}}
 		<tr>
+            <th>Статус:</th>
 			<th>Выбрать:</th>
 			<th>Фамилия:</th>
 			<th>Имя:</th>
 			<th>Отчество:</th>
 		</tr>
 		@foreach($students as $student)
+
 			<tr class="select-list__item">
                 <form 
                     class="add-to-selected-list" 
-                    action="{{--route('basket-add-URL',$product)--}}" 
+                    action="" 
                     method="POST"
                 >
                 @csrf
                     <td>
+                    @foreach( $cartStudents as $stud )
+                        @if($stud->name == $student->name)
+                            @if( $stud->surname == $student->surname )
+                                @if( $stud->lastname == $student->lastname )
+                                    @if( $stud->group == $student->group )
+                                        <div style="color:green;">Добавлено</div>
+                                    @endif
+                                @endif
+                            @endif
+                        @endif
+                    @endforeach
+                    </td>
+                    <td>
                         <div class="quantity">
-                        <button 
+                            <button 
                                 type="submit" 
                                 name="add_to_cart" 
-                                value="{{ $student->id }}" class=""
+                                value="{{ $student->id }}" 
+                                class=""
                             >
-                                Добавить
+                                Добавить      
                             </button>
                         </div>
                     </td>
                     <td>
+
                         {{ $student->surname }}
                     </td>
                     <td>
@@ -89,6 +106,7 @@
                     <td>
                         {{ $student->lastname }}
                     </td>
+                    
                 </form>
 			</tr>
 		@endforeach
