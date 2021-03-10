@@ -63,25 +63,33 @@
 		</tr>
 		@foreach($students as $student)
 			<tr class="select-list__item">
-				<td>
-                    <form class="add-to-selected-list" action="{{--route('basket-add-URL',$product)--}}" method="POST">
-                        @csrf
-
+                <form 
+                    class="add-to-selected-list" 
+                    action="{{--route('basket-add-URL',$product)--}}" 
+                    method="POST"
+                >
+                @csrf
+                    <td>
                         <div class="quantity">
-
-                           {{-- <input class="quant-input" type="number" step="1" min="1" max="" name="quantity" value="1" title="Qty" size="4" inputmode="numeric"> --}}
-                           <button type="submit" name="add-to-cart" value="85" class="">Добавить</button>
-                       </div>
-				</td>
-				<td>
-					{{ $student->surname }}
-				</td>
-				<td>
-					{{ $student->name }}
-				</td>
-				<td>
-					{{ $student->lastname }}
-				</td>
+                        <button 
+                                type="submit" 
+                                name="add_to_cart" 
+                                value="{{ $student->id }}" class=""
+                            >
+                                Добавить
+                            </button>
+                        </div>
+                    </td>
+                    <td>
+                        {{ $student->surname }}
+                    </td>
+                    <td>
+                        {{ $student->name }}
+                    </td>
+                    <td>
+                        {{ $student->lastname }}
+                    </td>
+                </form>
 			</tr>
 		@endforeach
   	</table>
