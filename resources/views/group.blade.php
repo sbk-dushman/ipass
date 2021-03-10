@@ -64,7 +64,7 @@
 		@foreach($students as $student)
 			<tr class="select-list__item">
 				<td>
-                    <form class="cart add-to-cart__form-btn" action="{{--route('basket-add-URL',$product)--}}" method="POST">
+                    <form class="add-to-selected-list" action="{{--route('basket-add-URL',$product)--}}" method="POST">
                         @csrf
 
                         <div class="quantity">
