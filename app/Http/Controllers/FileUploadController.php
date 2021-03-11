@@ -8,8 +8,6 @@ class FileUploadController extends Controller
 {
     public function fileUpload()
     {
-
-        // return view('fileUpload');
         return view('dropFile');
     }
     public function fileUploadPost(Request $request)

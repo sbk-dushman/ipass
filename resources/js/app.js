@@ -55,7 +55,7 @@ $fileInput.on('change', function() {
 });
 // список выбора
 $(document).ready(function() {
-    $('.select-section__btn-remove').click(function (e) {
+    $('.select_section__btn-remove').click(function (e) {
     e.preventDefault();
         $(this).closest('.select-list__item').remove();
     });
