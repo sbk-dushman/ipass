@@ -21,6 +21,8 @@ Route::post('/selected','MainController@selectedDelete');
 // / Дроп файлов
 Route::get('file-upload', 'FileUploadController@fileUpload')->name('file.upload');
 Route::post('file-upload', 'FileUploadController@fileUploadPost')->name('file.upload.post');
+//  печать
+Route::post('/print{id?}', 'PrintController@index')->name('print-URL');
 
 
 

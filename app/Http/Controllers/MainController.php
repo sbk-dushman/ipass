@@ -53,7 +53,7 @@ class MainController extends Controller
         $students = ListStudent::where('group', $groupname)->get();
         $cartStudents = CardStudent::get();
         // dump($cartStudents);
-        
+
 
         return view('group', compact('students', 'cartStudents'));
     }
@@ -72,8 +72,8 @@ class MainController extends Controller
         return redirect()->back();
     }
 
-    public function dropFile($var = null)
-    {
-        return view('dropFile');
-    }
+//     public function print()
+//     {
+//         return view('print');
+//     }
 }
