@@ -47,7 +47,6 @@ class MainController extends Controller
 
     public function group($groupname, Request $request)
     {
-
         $students = ListStudent::where('group', $groupname)->get();
         $cartStudents = CardStudent::get();
         return view('group', compact('students', 'cartStudents'));
