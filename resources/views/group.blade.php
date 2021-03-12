@@ -77,24 +77,36 @@
                             @if( $stud->surname == $student->surname )
                                 @if( $stud->lastname == $student->lastname )
                                     @if( $stud->group == $student->group )
-                                        <div style="color:green;">Добавлено</div>
+                                        <div 
+                                            style="color:green;"
+                                        >
+                                            Добавлено
+                                        </div>
+                                    @else
+                                        
                                     @endif
+                                @else
+                                    
                                 @endif
+                            @else
+                                
                             @endif
+                        @else
+
                         @endif
                     @endforeach
                     </td>
                     <td>
                         <div class="quantity">
-                            <button
-                                type="submit"
-                                name="add_to_cart"
-                                value="{{ $student->id }}"
-                                class="main-btn"
-                            >
-                                Добавить
-                            </button>
-                        </div>
+                                <button
+                                    type="submit"
+                                    name="add_to_cart"
+                                    value="{{ $student->id }}"
+                                    class="main-btn"
+                                >
+                                    Добавить
+                                </button>
+                            </div>
                     </td>
                     <td>
 

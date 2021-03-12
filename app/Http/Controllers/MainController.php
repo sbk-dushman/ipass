@@ -49,11 +49,10 @@ class MainController extends Controller
     {
         $students = ListStudent::where('group', $groupname)->get();
         $cartStudents = CardStudent::get();
-
         return view('group', compact('students', 'cartStudents'));
     }
 
-    public function print()
+    public function getPrint($id)
     {
         return view('print');
     }

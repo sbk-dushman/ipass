@@ -10,8 +10,9 @@ use Illuminate\Http\Request;
 
 class PrintController extends Controller
 {
-    public function index($data)
+    public function getPrint($id = null, Request $request)
     {
-        return view('print', compact('data'));
+        return view('print');
+        dump($request->all());
     }
 }
