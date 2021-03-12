@@ -50,14 +50,14 @@ class MainController extends Controller
 
         $students = ListStudent::where('group', $groupname)->get();
         $cartStudents = CardStudent::get();
-<<<<<<< HEAD
         
-=======
-        // dump($cartStudents);
-
->>>>>>> 78aceff898a837bd9dce07dca2e560a1fb2b9f5e
-
+        dump($cartStudents);
         return view('group', compact('students', 'cartStudents'));
+    }
+
+    public function print()
+    {
+        return view('print');
     }
 
     public function selected()
@@ -73,8 +73,8 @@ class MainController extends Controller
         return redirect()->back();
     }
 
-//     public function print()
-//     {
-//         return view('print');
-//     }
+    public function dropFile($var = null)
+    {
+        return view('dropFile');
+    }
 }
