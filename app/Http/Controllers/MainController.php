@@ -50,8 +50,14 @@ class MainController extends Controller
 
         $students = ListStudent::where('group', $groupname)->get();
         $cartStudents = CardStudent::get();
+<<<<<<< HEAD
         
         dump($cartStudents);
+=======
+        // dump($cartStudents);
+
+
+>>>>>>> 78aceff898a837bd9dce07dca2e560a1fb2b9f5e
         return view('group', compact('students', 'cartStudents'));
     }
 
@@ -73,8 +79,8 @@ class MainController extends Controller
         return redirect()->back();
     }
 
-    public function dropFile($var = null)
-    {
-        return view('dropFile');
-    }
+//     public function print()
+//     {
+//         return view('print');
+//     }
 }
