@@ -64,7 +64,7 @@
         </tr>
         @foreach($studentDatas as $data)
             <tr class="select-list__item">
-                <form  method="POST">
+                <form action="" method="POST">
                     @csrf
                     <td>
                         {{ $data->surname }}
