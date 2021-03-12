@@ -59,13 +59,10 @@
                     <h2 class="man-title">Поиск</h2>
                     <form action="/api.php">
                        <input class="search-input" name="search-req" type="text">
-                    <button сlass="search-btn" type="submit"> Найти </button>
+                    <button сlass="search-btn main-btn" type="submit"> Найти </button>
                         @csrf
                 </form>
                     <div class="serch-output">
-                        <?php
-                          $search_REQ;
-                        ?>
                     </div>
                 </div>
             </div>

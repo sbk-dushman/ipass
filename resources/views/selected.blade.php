@@ -64,7 +64,7 @@
         </tr>
         @foreach($studentDatas as $data)
             <tr class="select-list__item">
-                <form action="{{route('print-URL',$data)}}" method="POST">
+                <form  method="POST">
                     @csrf
                     <td>
                         {{ $data->surname }}
