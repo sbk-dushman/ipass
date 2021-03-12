@@ -51,8 +51,8 @@ class MainController extends Controller
         $students = ListStudent::where('group', $groupname)->get();
         $cartStudents = CardStudent::get();
 <<<<<<< HEAD
-        
-        dump($cartStudents);
+
+        //dump($cartStudents);
 =======
         // dump($cartStudents);
 
