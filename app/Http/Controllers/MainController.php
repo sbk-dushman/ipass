@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\DB;
 class MainController extends Controller
 {
     public function home(){
-        $groups = Group::paginate(6);
+        $groups = Group::paginate(3);
         return view('home', compact('groups'));
     }
 
