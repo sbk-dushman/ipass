@@ -11,13 +11,11 @@ use Illuminate\Support\Facades\DB;
 class MainController extends Controller
 {
     public function home(){
-        // $groups = Group::get();
-        $groups = Group::paginate(2);
-        // dd($paginator);
+        $groups = Group::paginate(6);
         return view('home', compact('groups'));
     }
 
-    public function addCart($groupname, Request $request)
+    public function addCart(Request $request)
     {
         $data = $request->add_to_cart;
         $StudName = ListStudent::where('id', $data)
@@ -52,7 +50,6 @@ class MainController extends Controller
 
         $students = ListStudent::where('group', $groupname)->get();
         $cartStudents = CardStudent::get();
-        // dump($cartStudents);
         
 
         return view('group', compact('students', 'cartStudents'));
@@ -61,7 +58,6 @@ class MainController extends Controller
     public function selected()
     {
         $studentDatas = CardStudent::get();
-        // dump($studentDatas);
         return view('selected', compact('studentDatas'));
     }
 
