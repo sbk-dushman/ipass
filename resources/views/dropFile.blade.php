@@ -52,9 +52,7 @@
 
    </div>
     <h2 class="main-title">Загрузка файлов</h2>
-    <div class="drop-area" id="drop-area">
-
-        @if ($message = Session::get('success'))
+    @if ($message = Session::get('success'))
         <div class="alert alert-success alert-block">
             <button type="button" class="close" data-dismiss="alert">×</button>
                 <strong>{{ $message }}</strong>
@@ -63,15 +61,16 @@
         @endif
 
         @if (count($errors) > 0)
-            <div class="alert alert-danger">
-                <strong>Whoops!</strong> There were some problems with your input.
-                <ul>
+            <div class="alert-danger">
+                <strong>Упс!</strong> Что-то пошло не так!
+                <ul class="">
                     @foreach ($errors->all() as $error)
                         <li>{{ $error }}</li>
                     @endforeach
                 </ul>
             </div>
         @endif
+    <div class="drop-area" id="drop-area">
         <form  action="{{ route('file.upload.post') }}" method="POST" enctype="multipart/form-data">
 
            <div class="">
