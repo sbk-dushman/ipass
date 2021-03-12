@@ -16,7 +16,7 @@
                   <a class="tab-title" href="{{route('selected-URL')}}">Выбранное</a>
             </li>
             <li class="tab-list__item">
-                  <a class="tab-title" href="{{route('drop-file')}}">Загрузить файлы</a>
+                  <a class="tab-title" href="{{route('file.upload')}}">Загрузить файлы</a>
             </li>
             <li class="tab-list__item">
                   <a class="tab-title" href="">Синхронизация</a>

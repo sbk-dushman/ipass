@@ -53,15 +53,34 @@
    </div>
     <h2 class="main-title">Загрузка файлов</h2>
     <div class="drop-area" id="drop-area">
-        <form action="/upload.php" method="post">
-            @csrf
+
+        @if ($message = Session::get('success'))
+        <div class="alert alert-success alert-block">
+            <button type="button" class="close" data-dismiss="alert">×</button>
+                <strong>{{ $message }}</strong>
+        </div>
+        <img src="uploads/{{ Session::get('file') }}">
+        @endif
+
+        @if (count($errors) > 0)
+            <div class="alert alert-danger">
+                <strong>Whoops!</strong> There were some problems with your input.
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+        <form  action="{{ route('file.upload.post') }}" method="POST" enctype="multipart/form-data">
+
            <div class="">
             <span class="fake-btn main-btn">Выбрать файл</span>
             <span class="file-msg">Перетащите сюда нужный файл</span>
-            <input class="file-input" type="file" multiple>
+            <input class="file-input" type="file" name="file" multiple>
            </div>
             <button type="submit" class="main-btn">Отправить</button>
-
+            @csrf
    </form>
 
     </div>

@@ -18,7 +18,12 @@ Route::get('/group{groupname?}','MainController@group')->name('group-URL');
 Route::post('/group{groupname?}','MainController@addCart');
 Route::get('/selected','MainController@selected')->name('selected-URL');
 Route::post('/selected','MainController@selectedDelete');
-Route::get('/drop-file','MainController@dropFile')->name('drop-file');
+// / Дроп файлов
+Route::get('file-upload', 'FileUploadController@fileUpload')->name('file.upload');
+Route::post('file-upload', 'FileUploadController@fileUploadPost')->name('file.upload.post');
+//  печать
+Route::post('/print{id?}', 'PrintController@index')->name('print-URL');
+
 
 
 
