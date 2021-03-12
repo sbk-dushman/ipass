@@ -65,9 +65,9 @@
 		@foreach($students as $student)
 
 			<tr class="select-list__item">
-                <form 
-                    class="add-to-selected-list" 
-                    action="" 
+                <form
+                    class="add-to-selected-list"
+                    action=""
                     method="POST"
                 >
                 @csrf
@@ -86,13 +86,13 @@
                     </td>
                     <td>
                         <div class="quantity">
-                            <button 
-                                type="submit" 
-                                name="add_to_cart" 
-                                value="{{ $student->id }}" 
-                                class=""
+                            <button
+                                type="submit"
+                                name="add_to_cart"
+                                value="{{ $student->id }}"
+                                class="main-btn"
                             >
-                                Добавить      
+                                Добавить
                             </button>
                         </div>
                     </td>
@@ -106,7 +106,7 @@
                     <td>
                         {{ $student->lastname }}
                     </td>
-                    
+
                 </form>
 			</tr>
 		@endforeach
