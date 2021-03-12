@@ -55,11 +55,6 @@ class MainController extends Controller
         return view('group', compact('students', 'cartStudents'));
     }
 
-    public function getPrint($id)
-    {
-        return view('print');
-    }
-
     public function selected()
     {
         $studentDatas = CardStudent::get();
