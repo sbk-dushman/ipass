@@ -28,7 +28,7 @@ class PrintController extends Controller
             '12' => 'декабря'
         ];
         $dateNow = $months[Date::now()->format('m')];
-        dump($dateNow);
+
 
         return view('print', compact('data', 'dateNow'));
     }
