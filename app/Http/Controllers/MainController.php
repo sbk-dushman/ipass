@@ -12,7 +12,7 @@ use Psy\CodeCleaner\FunctionReturnInWriteContextPass;
 class MainController extends Controller
 {
     public function home(){
-        $groups = Group::paginate(1);
+        $groups = Group::paginate(3);
         return view('home', compact('groups'));
     }
 
