@@ -282,9 +282,6 @@ svg{
     justify-content: center;
     align-items: center;
 }
-.pg_active {
-    border: 1px solid black;
-}
 .pagination__item a{
     padding: 10px;
     border:  1px solid #629cd1;
