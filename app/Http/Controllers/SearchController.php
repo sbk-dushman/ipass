@@ -16,8 +16,8 @@ class SearchController extends Controller
                             ->orWhere('surname', 'LIKE', '%' . $data . '%')
                             ->orWhere('lastname', 'LIKE', '%' . $data . '%')
                             ->orWhere('group_rus', 'LIKE', '%' . $data . '%')
+                            ->orderBy('surname', 'ASC')
                             ->get();
-        
         $group = Group::get();
         return view('search', compact('results', 'group'));
     }
