@@ -44,7 +44,7 @@
                   @if ($groups->total() > $groups->count())
                    <ul class="pagination">
                     <li class="pagination__item">
-                        {{$groups->links()}}
+                        {{$groups->onEachSide(1)->links()}}
                     </li>
                 </ul>
 

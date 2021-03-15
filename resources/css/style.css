@@ -43,6 +43,8 @@ body, html{
 }
 .main-content__header{
     display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 .select_section__btn-remove,.select-section__btn-print{
       width: 35px;
