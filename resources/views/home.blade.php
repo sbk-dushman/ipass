@@ -10,7 +10,7 @@
                   Группы
             </li>
             <li class="tab-list__item">
-                  Поиск
+                  <a href="/search">Поиск</a>
             </li>
             <li class="tab-list__item">
                   <a class="tab-title" href="{{route('selected-URL')}}">Выбранное</a>
@@ -29,7 +29,7 @@
                         <h3>Список групп</h3>
                   </div>
                   <hr class="hr">
-                        <div class="group-container">
+                  <div class="group-container">
                         @foreach( $groups as $group )
                               <div class="group-card">
                                     <a
@@ -53,22 +53,8 @@
             </li>
 
 
-        <li class="content-list__item tab-content">
-            <div class="search">
-                <div class="main-content">
-                    <h2 class="man-title">Поиск</h2>
-                    <form action="/api.php">
-                       <input class="search-input" name="search-req" type="text">
-                    <button сlass="search-btn main-btn" type="submit"> Найти </button>
-                        @csrf
-                </form>
-                    <div class="serch-output">
-                    </div>
-                </div>
-            </div>
-        </li>
-        <li class="content-list__item"></li>
-    </ul>
+            
+      </ul>
 </nav>
 
 @endsection
