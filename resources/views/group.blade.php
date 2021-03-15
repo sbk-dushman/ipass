@@ -51,11 +51,15 @@
             </svg>
         </a>
         <label for=""> Cортировать по:
-         <select class="select-sort">
-            <option value="sortByDate">дате</option>
-            <option value="sortByAlphabet">Алфавиту</option>
-        </select>
-    </label>
+            <select name="section" class="select-sort">
+                <option value="sortByDate">дате</option>
+                <option value="sortByAlphabet">Алфавиту</option>
+            </select>
+            <form action="">
+                <button name="sort" value="date">date</button>
+                <button name="sort" value="alfh">alfh</button>
+            </form>
+        </label>
    </div>
 
 	    <h2 class="main-title">Состав группы</h2>
@@ -69,7 +73,11 @@
 			<th>Отчество:</th>
 		</tr>
 		@foreach($students as $student)
-
+            @if ($sort == 'date')
+                date
+            @elseif ($sort == 'alfh')
+                alfh
+            @endif
 			<tr class="select-list__item">
                 <form
                     class="add-to-selected-list"
@@ -116,7 +124,6 @@
                         </div>
                     </td>
                     <td>
-
                         {{ $student->surname }}
                     </td>
                     <td>
