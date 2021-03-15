@@ -50,6 +50,12 @@
                 </g>
             </svg>
         </a>
+        <label for=""> Cортировать по:
+         <select class="select-sort">
+            <option value="sortByDate">дате</option>
+            <option value="sortByAlphabet">Алфавиту</option>
+        </select>
+    </label>
    </div>
 
 	    <h2 class="main-title">Состав группы</h2>
@@ -77,19 +83,19 @@
                             @if( $stud->surname == $student->surname )
                                 @if( $stud->lastname == $student->lastname )
                                     @if( $stud->group == $student->group )
-                                        <div 
+                                        <div
                                             style="color:green;"
                                         >
                                             Добавлено
                                         </div>
                                     @else
-                                        
+
                                     @endif
                                 @else
-                                    
+
                                 @endif
                             @else
-                                
+
                             @endif
                         @else
 
@@ -122,6 +128,11 @@
 
                 </form>
 			</tr>
+             {{-- <ul class="pagination">
+                    <li class="pagination__item">
+                        {{$student->links()}}
+                    </li>
+                </ul> --}}
 		@endforeach
   	</table>
 </div>

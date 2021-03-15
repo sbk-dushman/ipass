@@ -43,6 +43,8 @@ body, html{
 }
 .main-content__header{
     display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 .select_section__btn-remove,.select-section__btn-print{
       width: 35px;
@@ -116,7 +118,6 @@ svg{
         display: flex;
         justify-content: center;
         align-items: center;
-        /* position: relative; */
     }
 
     .file-input {
@@ -141,8 +142,11 @@ svg{
         justify-content: space-around;
         position: relative;
     }
-
-
+.alert-danger{
+    color: red;
+    font-size: 20PX;
+    line-height: 1.5;
+}
     .drop-area div{
         /* width: 100%;
         height: 100%; */

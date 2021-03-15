@@ -15,17 +15,11 @@ class FileUploadController extends Controller
         $request->validate([
             'file' => 'required|mimes:pdf,xlx,csv|max:2048',
         ]);
-        //  старая выгрузка
-        // $fileName =pathinfo($request->file->getClientOriginalName(), PATHINFO_FILENAME).'.'.$request->file->extension();
 
-        // $request->file->move(public_path('uploads'), $fileName);
-
-        // return back()
-        //     ->with('success','You have successfully upload file.')
-        //     ->with('file',$fileName);
         // новая
-        $inputFileName = $request->file;
+
         try {
+        $inputFileName = $request->file;
         $inputFileType = \PhpOffice\PhpSpreadsheet\IOFactory::identify($inputFileName);
         $reader = \PhpOffice\PhpSpreadsheet\IOFactory::createReader($inputFileType);
         $spreadsheet = $reader->load($inputFileName);
@@ -44,13 +38,20 @@ class FileUploadController extends Controller
             $data = [];
             foreach ($cellIterator as $cell) {
                 $data[] = $cell->getValue();
-            dump($data);
+            dd($data);
             }
         }
 
         } catch (\PhpOffice\PhpSpreadsheet\Reader\Exception $e) {
             die('Error loading file: ' . $e->getMessage());
         }
+         //  старая выгрузка
+        // $fileName =pathinfo($request->file->getClientOriginalName(), PATHINFO_FILENAME).'.'.$request->file->extension();
 
+        // $request->file->move(public_path('uploads'), $fileName);
+
+        // return back()
+        //     ->with('success','You have successfully upload file.')
+        //     ->with('file',$fileName);
     }
 }
