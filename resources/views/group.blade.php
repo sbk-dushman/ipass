@@ -75,8 +75,8 @@
                     class="add-to-selected-list"
                     action=""
                     method="POST"
-                    >
-                    @csrf
+                >
+                @csrf
                     <td>
                     @foreach( $cartStudents as $stud )
                         @if($stud->name == $student->name)
