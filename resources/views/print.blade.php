@@ -15,8 +15,6 @@
 
 <div class="cards">
     <div class="card-block">
-<<<<<<< HEAD
-=======
         <div class="card-wrap">
             <div class="card-wrap-figure top"></div>
             <div class="card-wrap-figure bottom"></div>
@@ -58,7 +56,6 @@
         </div>
 
         </div>
->>>>>>> upstream/main
 
 
         {{-- <div class="card">
