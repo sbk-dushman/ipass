@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\DB;
 class MainController extends Controller
 {
     public function home(){
-        $groups = Group::paginate(3);
+        $groups = Group::paginate(9);
         return view('home', compact('groups'));
     }
 
@@ -47,6 +47,7 @@ class MainController extends Controller
 
     public function group($groupname, Request $request)
     {
+        // $students = ListStudent::where('group', $groupname)->get();
         $students = ListStudent::where('group', $groupname)->get();
         $cartStudents = CardStudent::get();
         return view('group', compact('students', 'cartStudents'));
