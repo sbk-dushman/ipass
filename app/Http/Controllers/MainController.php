@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Group;
 use App\ListStudent;
 use Illuminate\Support\Facades\DB;
+use Psy\CodeCleaner\FunctionReturnInWriteContextPass;
 
 class MainController extends Controller
 {
@@ -65,8 +66,13 @@ class MainController extends Controller
         return redirect()->back();
     }
 
-//     public function print()
-//     {
-//         return view('print');
-//     }
+    public function searchPost() 
+    {
+        dump(1);
+    }
+
+    public function searchGet() 
+    {
+        return view('search');
+    }
 }

@@ -99,6 +99,7 @@
                     <td>
                         <div class="quantity">
                                 <button
+                                    id="btn_add"
                                     type="submit"
                                     name="add_to_cart"
                                     value="{{ $student->id }}"
@@ -106,7 +107,7 @@
                                 >
                                     Добавить
                                 </button>
-                            </div>
+                        </div>
                     </td>
                     <td>
 

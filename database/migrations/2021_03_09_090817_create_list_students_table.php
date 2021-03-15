@@ -19,6 +19,7 @@ class CreateListStudentsTable extends Migration
             $table->string('surname');
             $table->string('lastname');
             $table->string('group');
+            $table->string('group_rus');
             $table->timestamps();
         });
     }
