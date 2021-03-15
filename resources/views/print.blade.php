@@ -15,6 +15,8 @@
 
 <div class="cards">
     <div class="card-block">
+<<<<<<< HEAD
+=======
         <div class="card-wrap">
             <div class="card-wrap-figure top"></div>
             <div class="card-wrap-figure bottom"></div>
@@ -56,6 +58,7 @@
         </div>
 
         </div>
+>>>>>>> upstream/main
 
 
         {{-- <div class="card">
@@ -70,20 +73,45 @@
                          alt="">
                 </div>
                 <div class="info">
+                
                     <div class="stud">СТУДЕНЧЕСКИЙ БИЛЕТ №<span class="stud-number">777-777</span></div>
-                    <div class="stud-surname">Фамилия <span class="surname">Путин</span></div>
-                    <div class="stud-name">
-                        Имя
-                         <span class="name">Владимир</span>
-                    </div>
-                     <div class="stud-name">
-                        отчество
-                         <span class="name">Владимирович</span>
-                    </div>
-                    <div class="stud-form">Форма обучения <span class="form">очная</span></div>
-                    <div class="stud-order">Зачислен приказом от <span class="order-date">21.08.2019г.</span> №<span
-                                class="stud-order-number">101</span></div>
-                    <div class="stud-time">Дата выдачи <span class="time">2 сентября 2019г.</span></div>
+                    @foreach( $data as $dat )
+                        <div class="stud-surname">
+                            Фамилия 
+                            <span class="surname">
+                                {{ $dat->surname }}
+                            </span>
+                        </div>
+                        <div class="stud-name">
+                            Имя
+                            <span class="name">
+                                {{ $dat->name }}
+                            </span>
+                        </div>
+                        <div class="stud-name">
+                            отчество
+                            <span class="name">
+                                {{ $dat->lastname }}
+                            </span>
+                        </div>
+                        <div class="stud-form">
+                            Форма обучения 
+                            <span class="form">
+                                {{ $dat->form_of_education }}
+                            </span>
+                        </div>
+                        <div class="stud-order">
+                            Зачислен приказом от 
+                            <span class="order-date">
+                                {{ $dat->date_of_enrollment }}г.
+                            </span>
+                            №
+                            <span class="stud-order-number">
+                                101
+                            </span>
+                        </div>
+                    @endforeach
+                    <div class="stud-time">Дата выдачи <span class="time">{{ Date::now()->format("d") }} {{ $dateNow }} {{ Date::now()->format('Y') }}г.</span></div>
                     <div class="sign">_____________________</div>
                     <div class="sign-description">(подпись студента)</div>
                 </div>

@@ -4,7 +4,11 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
+<<<<<<< HEAD
+    "content-hash": "020a384d9d0f909ad3e4ca27b4b83d05",
+=======
     "content-hash": "31e57264ed86dfbe4e97178ad51b2adf",
+>>>>>>> 81d1e884d8b69750be2fe8dfb9881451460172c7
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -309,6 +313,8 @@
                 "source": "https://github.com/egulias/EmailValidator/tree/2.1.25"
             },
             "time": "2020-12-29T14:50:06+00:00"
+<<<<<<< HEAD
+=======
         },
         {
             "name": "ezyang/htmlpurifier",
@@ -359,6 +365,7 @@
                 "html"
             ],
             "time": "2020-06-29T00:56:53+00:00"
+>>>>>>> 81d1e884d8b69750be2fe8dfb9881451460172c7
         },
         {
             "name": "fideloper/proxy",
@@ -417,6 +424,69 @@
                 "source": "https://github.com/fideloper/TrustedProxy/tree/4.4.1"
             },
             "time": "2020-10-22T13:48:01+00:00"
+        },
+        {
+            "name": "jenssegers/date",
+            "version": "v4.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jenssegers/date.git",
+                "reference": "506f86096e0b512f9ece6ad0ccae62b03c125771"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jenssegers/date/zipball/506f86096e0b512f9ece6ad0ccae62b03c125771",
+                "reference": "506f86096e0b512f9ece6ad0ccae62b03c125771",
+                "shasum": ""
+            },
+            "require": {
+                "nesbot/carbon": "^2.16"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^7.5",
+                "satooshi/php-coveralls": "^2.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.1-dev"
+                },
+                "laravel": {
+                    "providers": [
+                        "Jenssegers\\Date\\DateServiceProvider"
+                    ],
+                    "aliases": {
+                        "Date": "Jenssegers\\Date\\Date"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Jenssegers\\Date\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jens Segers",
+                    "homepage": "https://jenssegers.com"
+                }
+            ],
+            "description": "A date library to help you work with dates in different languages",
+            "homepage": "https://github.com/jenssegers/date",
+            "keywords": [
+                "carbon",
+                "date",
+                "datetime",
+                "i18n",
+                "laravel",
+                "time",
+                "translation"
+            ],
+            "time": "2020-04-28T06:35:54+00:00"
         },
         {
             "name": "laravel/framework",
@@ -1112,6 +1182,8 @@
                 "source": "https://github.com/Seldaek/monolog/tree/2.2.0"
             },
             "time": "2020-12-14T13:15:25+00:00"
+<<<<<<< HEAD
+=======
         },
         {
             "name": "myclabs/php-enum",
@@ -1158,6 +1230,7 @@
                 "enum"
             ],
             "time": "2021-02-15T16:11:48+00:00"
+>>>>>>> 81d1e884d8b69750be2fe8dfb9881451460172c7
         },
         {
             "name": "nesbot/carbon",
