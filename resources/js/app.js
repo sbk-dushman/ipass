@@ -88,6 +88,48 @@ $(document).ready(function() {
         // });
 
     });
+    $('.search-btn').on("click", function (e) {
+        console.log('урааа');
+        // e.preventDefault();
+        let req = $(".search-result-form").serializeArray()
+        let carentJson = JSON.stringify(req);
+        // $.ajax({
+
+        //     url: '/search',
+        //     data: carentJson,
+        //     method: 'POST',
+
+        //     success: function (data) {
+        //         console.log('урааа');
+        //     }
+
+        // });
+
+        // $.ajax({
+        //     url: 'http://ipass.uf/search',
+        //     type: 'POST',
+        //     data: {carentJson}
+        // }).done(function (msg) {
+        //     alert("Вc отправил ");
+
+        // });
+
+    });
+    $('.search-btn').click(function(e) {
+        e.preventDefault();
+        console.log('урааа');
+        let input = document.querySelector('.search-input').val();
+        $.ajax({
+            url: '/search',
+            data: input,
+            method: 'POST',
+
+            success: function (data) {
+                console.log('урааа');
+            }
+
+        });
+    });
 });
 
 // старый дроп

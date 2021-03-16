@@ -51,11 +51,11 @@
             </div>
                 <h2 class="man-title">Поиск</h2>
 
-                <form action="{{ route('search-post') }}" method="POST">
-                @csrf
+                {{-- <form action="" method="POST"> --}}
+                {{-- @csrf --}}
                     <input required class="search-input" name="search_req" type="text">
                     <button сlass="search-btn main-btn" type="submit"> Найти </button>
-                </form>
+                {{-- </form> --}}
 
                 <ul class="serch-output results-list" >
                     @if ($results == null)
