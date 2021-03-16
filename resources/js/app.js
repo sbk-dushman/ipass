@@ -67,12 +67,15 @@ $(document).ready(function() {
        let req= $(".search-result-form").serializeArray()
         let carentJson = JSON.stringify(req);
         $.ajax({
-            url: 'http://ipass.uf/search',
+
+            url: '/search',
             data: carentJson,
+            method: 'POST',
 
         success: function(data) {
             console.log('урааа');
             }
+
     });
 
         // $.ajax({
