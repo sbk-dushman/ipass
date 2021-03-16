@@ -66,26 +66,32 @@
                         @foreach ($results as $data)
                         
                             <li class="results-list__item">
-                                <form action="{{ route('search-add-post') }}" method="POST">
+                                <form id="contactform" action="{{ route('search-add-post') }}" method="POST">
                                     @csrf
                                     <p>Студент</p>
                                     <p>
                                         <span class="lable">
                                             фамилия:
                                         </span>
-                                        {{ $data->lastname }}
+                                        <p id="lastname">
+                                            {{ $data->lastname }}
+                                        </p>
                                     </p>
                                     <p>
                                         <span class="lable">
                                             Имя:
                                         </span>
-                                        {{ $data->name }}
+                                        <p id="name">
+                                            {{ $data->name }}
+                                        </p>
                                     </p>
                                     <p>
                                         <span class="lable">
                                             Отчество:
                                         </span>
-                                        {{ $data->surname }}
+                                        <p id="surname">
+                                            {{ $data->surname }}
+                                        </p>
                                     </p>
                                     <p>
                                         <span class="lable">
@@ -107,6 +113,7 @@
                                         >
                                         Добавить
                                     </button>
+
                                     <p>
                                         @foreach( $cartStudents as $stud )
                                             @if($stud->name == $data->name)
@@ -140,5 +147,5 @@
                     </ul>
                 </div>
     </div>
-
+    
 @endsection
