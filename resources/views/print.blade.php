@@ -70,11 +70,11 @@
                          alt="">
                 </div>
                 <div class="info">
-                
+
                     <div class="stud">СТУДЕНЧЕСКИЙ БИЛЕТ №<span class="stud-number">777-777</span></div>
                     @foreach( $data as $dat )
                         <div class="stud-surname">
-                            Фамилия 
+                            Фамилия
                             <span class="surname">
                                 {{ $dat->surname }}
                             </span>
@@ -92,13 +92,13 @@
                             </span>
                         </div>
                         <div class="stud-form">
-                            Форма обучения 
+                            Форма обучения
                             <span class="form">
                                 {{ $dat->form_of_education }}
                             </span>
                         </div>
                         <div class="stud-order">
-                            Зачислен приказом от 
+                            Зачислен приказом от
                             <span class="order-date">
                                 {{ $dat->date_of_enrollment }}г.
                             </span>
@@ -169,7 +169,8 @@
     }
 
     .card-wrap-figure {
-        background: url('/figure3.png');
+        background: url( {{ asset("/figure3.png")}});
+        /* {{ asset("/img/conventions/convention_title.jpg")}} */
         width: 95mm;
         height: calc(9mm - 8px);
         position: absolute;
