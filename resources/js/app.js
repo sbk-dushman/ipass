@@ -60,7 +60,7 @@ $(document).ready(function() {
         $(this).closest('.select-list__item').remove();
     });
 
-    // поисковой запрос
+    // Добавить из  поиска
 
     $('#btn_add_from_search').click(function (e) {
         e.preventDefault();
@@ -75,24 +75,36 @@ $(document).ready(function() {
         success: function(data) {
             console.log('урааа');
             }
-
     });
 
-        // $.ajax({
-        //     url: 'http://ipass.uf/search',
-        //     type: 'POST',
-        //     data: {carentJson}
-        // }).done(function (msg) {
-        //     alert("Вc отправил ");
-
-        // });
-
     });
-    $('.search-btn').on("click", function (e) {
-        console.log('урааа');
+    // поисковой запрос
+    $('#search-btn').on("click", function (e) {
+        let req = $('#search__inpput').val();
         // e.preventDefault();
-        let req = $(".search-result-form").serializeArray()
+
         let carentJson = JSON.stringify(req);
+        console.log(carentJson);
+        $.ajax({
+
+            url: '/search',
+            data: carentJson,
+            method: 'POST',
+
+            success: function (data) {
+                // $('#search__inpput').val('');
+            }
+
+        });
+    });
+     // поисковой запросV2
+    // $('#search__inpput').on("keydown", function (e) {
+    //     console.log($('#search__inpput').val());
+        // let req = $('#search__inpput').val();
+        // e.preventDefault();
+
+        // let carentJson = JSON.stringify(req);
+        // console.log("Уп"+carentJson);
         // $.ajax({
 
         //     url: '/search',
@@ -100,36 +112,14 @@ $(document).ready(function() {
         //     method: 'POST',
 
         //     success: function (data) {
-        //         console.log('урааа');
+        //         // $('#search__inpput').val('');
         //     }
 
         // });
 
-        // $.ajax({
-        //     url: 'http://ipass.uf/search',
-        //     type: 'POST',
-        //     data: {carentJson}
-        // }).done(function (msg) {
-        //     alert("Вc отправил ");
 
-        // });
 
-    });
-    $('.search-btn').click(function(e) {
-        e.preventDefault();
-        console.log('урааа');
-        let input = document.querySelector('.search-input').val();
-        $.ajax({
-            url: '/search',
-            data: input,
-            method: 'POST',
-
-            success: function (data) {
-                console.log('урааа');
-            }
-
-        });
-    });
+    // });
 });
 
 // старый дроп

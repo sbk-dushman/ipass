@@ -49,15 +49,17 @@
                             </svg>
                     </a>
             </div>
+
                 <h2 class="man-title">Поиск</h2>
 
                 {{-- <form action="" method="POST"> --}}
                 {{-- @csrf --}}
-                    <input required class="search-input" name="search_req" type="text">
-                    <button сlass="search-btn main-btn" type="submit"> Найти </button>
+                    <input required id="search__inpput" class="search-input" name="search_req" type="text">
+                    <button id="search-btn" сlass="main-btn">Найти</button>
                 {{-- </form> --}}
 
                 <ul class="serch-output results-list" >
+
                     @if ($results == null)
                     <li class="results-list__item">Введите запрос</li>
                     @elseif ($results->count() <= 0)

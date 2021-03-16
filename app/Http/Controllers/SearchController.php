@@ -10,9 +10,10 @@ use Illuminate\Support\Facades\DB;
 
 class SearchController extends Controller
 {
+
     public function searchPost(Request $request)
     {
-
+        dd($request->all());
         $data = $request->search_req;
         $results = ListStudent::where('name', 'LIKE', '%' . $data . '%')
                             ->orWhere('surname', 'LIKE', '%' . $data . '%')
@@ -29,7 +30,7 @@ class SearchController extends Controller
     {
 
         $results = null;
-        
+
         return view('search', compact('results'));
     }
 
