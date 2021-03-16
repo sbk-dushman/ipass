@@ -50,9 +50,8 @@ class SearchController extends Controller
             'lastname' => $StudLastname,
             'group' => $StudGroup
         ])->value('id');
-        dump($StudName, $StudSurname, $StudLastname, $StudGroup);
         if( $issetName == true ) {
-            //return redirect()->back();
+            return redirect()->back();
         }else {
             DB::table('card_students')->insert([
                 'name' => $StudName,
@@ -61,7 +60,6 @@ class SearchController extends Controller
                 'group' => $StudGroup
             ]);
         }
-        
-        //return redirect()->back();
+        return redirect()->back();
     }
 }
