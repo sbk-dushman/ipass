@@ -66,51 +66,39 @@
                         @foreach ($results as $data)
 
                             <li class="results-list__item">
-<<<<<<< HEAD
                                 <form id="contactform" action="{{ route('search-add-post') }}" method="POST">
-=======
                                 <form  class="search-result-form"  action="{{ route('search-add-post') }}" method="POST">
->>>>>>> c7d5beabeb5898ce373a0068a8d3b8321af70ac2
                                     @csrf
                                     <p>Студент</p>
                                     <p name=" req-1" value={{ $data->lastname }}>
                                         <span class="lable">
                                             фамилия:
                                         </span>
-<<<<<<< HEAD
                                         <p id="lastname">
                                             {{ $data->lastname }}
                                         </p>
-=======
                                         {{ $data->lastname }}
                                         <input type="hidden" name ="lastname" value="{{ $data->lastname}}">
->>>>>>> c7d5beabeb5898ce373a0068a8d3b8321af70ac2
                                     </p>
                                     <p>
                                         <span class="lable">
                                             Имя:
                                         </span>
-<<<<<<< HEAD
                                         <p id="name">
                                             {{ $data->name }}
                                         </p>
-=======
                                         {{ $data->name }}
                                         <input type="hidden" name ="stud-name" value="{{ $data->lastname}}">
->>>>>>> c7d5beabeb5898ce373a0068a8d3b8321af70ac2
                                     </p>
                                     <p>
                                         <span class="lable">
                                             Отчество:
                                         </span>
-<<<<<<< HEAD
                                         <p id="surname">
                                             {{ $data->surname }}
                                         </p>
-=======
                                         {{ $data->surname }}
                                         <input type="hidden" name ="surname" value="{{ $data->surname }}">
->>>>>>> c7d5beabeb5898ce373a0068a8d3b8321af70ac2
                                     </p>
                                     <p>
                                         <span class="lable">
