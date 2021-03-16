@@ -6,7 +6,6 @@
       </div>
       <ul class="tab-list">
             <li class="tab-list__item tab tab-btn  is-active">
-
                   Группы
             </li>
             <li class="tab-list__item">

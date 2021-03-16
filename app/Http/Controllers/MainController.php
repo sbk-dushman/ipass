@@ -12,7 +12,7 @@ use Psy\CodeCleaner\FunctionReturnInWriteContextPass;
 class MainController extends Controller
 {
     public function home(){
-        $groups = Group::paginate(3);
+        $groups = Group::paginate(6);
         return view('home', compact('groups'));
     }
 
@@ -52,7 +52,6 @@ class MainController extends Controller
         $students = ListStudent::where('group', $groupname)->orderBy('surname', 'ASC')->get();
         $cartStudents = CardStudent::get();
         $sort = $request->sort;
-        dump($sort);
         return view('group', compact('students', 'cartStudents', 'sort'));
     }
 
