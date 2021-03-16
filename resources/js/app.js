@@ -65,8 +65,25 @@ $(document).ready(function() {
     $('#btn_add_from_search').click(function (e) {
         e.preventDefault();
        let req= $(".search-result-form").serializeArray()
-        let carentJson = JSON.stringify(req)
-        console.log(carentJson);
+        let carentJson = JSON.stringify(req);
+        $.ajax({
+            url: 'http://ipass.uf/search',
+            data: carentJson,
+
+        success: function(data) {
+            console.log('урааа');
+            }
+    });
+
+        // $.ajax({
+        //     url: 'http://ipass.uf/search',
+        //     type: 'POST',
+        //     data: {carentJson}
+        // }).done(function (msg) {
+        //     alert("Вc отправил ");
+
+        // });
+
     });
 });
 
