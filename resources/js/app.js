@@ -59,30 +59,18 @@ $(document).ready(function() {
     e.preventDefault();
         $(this).closest('.select-list__item').remove();
     });
+
+    // поисковой запрос
+
+    $('#btn_add_from_search').click(function (e) {
+        e.preventDefault();
+       let req= $(".search-result-form").serializeArray()
+        let carentJson = JSON.stringify(req)
+        console.log(carentJson);
+    });
 });
-// поисковой запрос
-let add = document.querySelector('.search-btn');
-let doName = document.querySelector('.search-input');
-let doList = document.querySelector('.serch-output');
 
-add.addEventListener('click', function (ev) {
-    ev.preventDefault();
-    let myDO = document.createElement('li');
-
-    switch (true) {
-        case doName.value == '':
-            alert('Заполните поле!');
-            break;
-
-        default:
-            myDO.innerHTML = doName.value;
-            doList.appendChild(myDO);
-            doName.value = '';
-            break;
-    }
-})
-
-
+// старый дроп
 //     var dropArea = $('#drop-area'),
 //         maxFileSize = 1000000; // максимальный размер файла - 1 мб.
 //         if (typeof(window.FileReader) == 'undefined') {
