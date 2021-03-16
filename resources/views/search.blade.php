@@ -51,7 +51,7 @@
             </div>
                 <h2 class="man-title">Поиск</h2>
 
-                <form action="" method="POST">
+                <form action="{{ route('search-post') }}" method="POST">
                 @csrf
                     <input required class="search-input" name="search_req" type="text">
                     <button сlass="search-btn main-btn" type="submit"> Найти </button>
@@ -64,30 +64,77 @@
                         Ничего не нашлось!!
                     @else
                         @foreach ($results as $data)
+                        
                             <li class="results-list__item">
-                                <form method="POST">
+                                <form action="{{ route('search-add-post') }}" method="POST">
                                     @csrf
-                                            <p>Студент</p>
-                                            <p><span class="lable">фамилия:</span>  {{ $data->lastname }}</p>
-                                            <p><span class="lable">Имя:</span>{{ $data->name }}</p>
-                                            <p><span class="lable">Отчество:</span> {{ $data->surname }}</p>
-                                            <p><span class="lable">Группа:</span> <a href="{{ route('group-URL') }}{{ $data->group }}">
-                                                {{ $data->group_rus }}
-                                            </a>
-                                            </p>
+                                    <p>Студент</p>
+                                    <p>
+                                        <span class="lable">
+                                            фамилия:
+                                        </span>
+                                        {{ $data->lastname }}
+                                    </p>
+                                    <p>
+                                        <span class="lable">
+                                            Имя:
+                                        </span>
+                                        {{ $data->name }}
+                                    </p>
+                                    <p>
+                                        <span class="lable">
+                                            Отчество:
+                                        </span>
+                                        {{ $data->surname }}
+                                    </p>
+                                    <p>
+                                        <span class="lable">
+                                            Группа:
+                                        </span>
+                                        <a 
+                                            href="{{ route('group-URL') }}{{ $data->group }}"
+                                        >
+                                        {{ $data->group_rus }}
+                                    </a>
+                                    </p>
 
-                                            <button
-                                            id="btn_add"
-                                            {{-- type="submit" --}}
-                                            name="add_to_cart"
-                                            value="{{-- $student->id --}}"
-                                            class="main-btn"
-                                            >
-                                            Добавить
-                                            </button>
-                                        {{-- </form> --}}
+                                    <button
+                                        id="btn_add"
+                                        type="submit"
+                                        name="add_to_cart"
+                                        value="{{$data->id}}"
+                                        class="main-btn"
+                                        >
+                                        Добавить
+                                    </button>
+                                    <p>
+                                        @foreach( $cartStudents as $stud )
+                                            @if($stud->name == $data->name)
+                                                @if( $stud->surname == $data->surname )
+                                                    @if( $stud->lastname == $data->lastname )
+                                                        @if( $stud->group == $data->group )
+                                                            <div
+                                                                style="color:green;"
+                                                            >
+                                                                Добавлено
+                                                            </div>
+                                                        @else
 
+                                                        @endif
+                                                    @else
+
+                                                    @endif
+                                                @else
+
+                                                @endif
+                                            @else
+
+                                            @endif
+                                        @endforeach
+                                    </p>
+                                </form>
                             </li>
+                        
                         @endforeach
                     @endif
                     </ul>
