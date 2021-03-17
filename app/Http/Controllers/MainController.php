@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Group;
 use App\ListStudent;
 use Illuminate\Support\Facades\DB;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx\Rels;
 use Psy\CodeCleaner\FunctionReturnInWriteContextPass;
 
 class MainController extends Controller
@@ -55,10 +56,16 @@ class MainController extends Controller
         return view('group', compact('students', 'cartStudents', 'sort'));
     }
 
-    public function selected()
+    public function selected(Request $request)
     {
+        
         $studentDatas = CardStudent::get();
-        return view('selected', compact('studentDatas'));
+        $studentDatas_print = CardStudent::select('id')->get();
+        $data_select = [
+            'data_one' => '1',
+            'data_two' => '2'
+        ];
+        return view('selected', compact('studentDatas', 'studentDatas_print', 'data_select'));
     }
 
     public function selectedDelete(Request $request)

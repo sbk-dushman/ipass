@@ -10,9 +10,12 @@ use Illuminate\Support\Facades\Date;
 
 class PrintController extends Controller
 {
-    public function getPrint($id, Request $request)
+    public function getPrint(Request $request)
     {
-        $data = CardStudent::where('id', $id)->get();
+        // dump($request);
+        $datas = CardStudent::get();
+        
+        // $data = CardStudent::where('id', $id)->get();
         $months = [ 
             '01' => 'января', 
             '02' => 'февраля', 
@@ -28,8 +31,7 @@ class PrintController extends Controller
             '12' => 'декабря'
         ];
         $dateNow = $months[Date::now()->format('m')];
-
-
-        return view('print', compact('data', 'dateNow'));
+        return view('print', compact('datas', 'dateNow'));
+        // return view('print');
     }
 }
