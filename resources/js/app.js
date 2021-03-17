@@ -136,6 +136,7 @@ $(document).ready(function() {
                                         {{ $data->group_rus }}
                                     </a>
                                     </p>
+
                                     <button
                                         id="btn_add_from_search"
                                         type="submit"
@@ -157,12 +158,16 @@ $(document).ready(function() {
                                                                 Добавлено
                                                             </div>
                                                         @else
+
                                                         @endif
                                                     @else
+
                                                     @endif
                                                 @else
+
                                                 @endif
                                             @else
+
                                             @endif
                                         @endforeach
                                     </p>
