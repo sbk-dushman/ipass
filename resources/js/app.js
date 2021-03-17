@@ -84,19 +84,19 @@ $(document).ready(function() {
         // e.preventDefault();
 
         let carentJson = JSON.stringify(req);
-        console.log(carentJson);
         $.ajax({
 
             url: '/search',
-            data: carentJson,
+            type:'JSON',
+            data: {name:carentJson},
             method: 'POST',
-
             success: function (data) {
-                // $('#search__inpput').val('');
+                console.log("success")
             }
 
         });
     });
+
      // поисковой запросV2
     // $('#search__inpput').on("keydown", function (e) {
     //     console.log($('#search__inpput').val());
