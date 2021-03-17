@@ -4,7 +4,11 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
+<<<<<<< HEAD
+    "content-hash": "020a384d9d0f909ad3e4ca27b4b83d05",
+=======
     "content-hash": "31e57264ed86dfbe4e97178ad51b2adf",
+>>>>>>> 81d1e884d8b69750be2fe8dfb9881451460172c7
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -309,6 +313,8 @@
                 "source": "https://github.com/egulias/EmailValidator/tree/2.1.25"
             },
             "time": "2020-12-29T14:50:06+00:00"
+<<<<<<< HEAD
+=======
         },
         {
             "name": "ezyang/htmlpurifier",
@@ -359,6 +365,7 @@
                 "html"
             ],
             "time": "2020-06-29T00:56:53+00:00"
+>>>>>>> 81d1e884d8b69750be2fe8dfb9881451460172c7
         },
         {
             "name": "fideloper/proxy",
@@ -1175,6 +1182,8 @@
                 "source": "https://github.com/Seldaek/monolog/tree/2.2.0"
             },
             "time": "2020-12-14T13:15:25+00:00"
+<<<<<<< HEAD
+=======
         },
         {
             "name": "myclabs/php-enum",
@@ -1221,6 +1230,7 @@
                 "enum"
             ],
             "time": "2021-02-15T16:11:48+00:00"
+>>>>>>> 81d1e884d8b69750be2fe8dfb9881451460172c7
         },
         {
             "name": "nesbot/carbon",
