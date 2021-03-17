@@ -54,20 +54,22 @@
 
                 <form action="" method="POST" onsubmit="return false">
                 {{-- @csrf --}}
-                    <input required id="search__inpput" class="search-input" name="search_req" type="text">
+                    <input required id="search__inpput" placeholder="Введите запрос"  class="search-input" name="search_req" type="text">
                     <button type="submit" id="search-btn" сlass="main-btn">Найти</button>
+
                 </form>
 
                 <ul class="serch-output results-list" >
 
-                    @if ($results == null)
-                    <li class="results-list__item">Введите запрос</li>
-                    @elseif ($results->count() <= 0)
-                        Ничего не нашлось!!
-                    @else
-                        @foreach ($results as $data)
+                    {{-- @if ($results == null) --}}
+                    {{-- <li class="results-list__item">  Ничего не нашлось!!</li> --}}
+                    {{-- @elseif ($results->count() <= 0) --}}
+                        {{-- Ничего не нашлось!!
+                    @else --}}
+                        {{-- @foreach ($results as $data) --}}
 
-                            <li class="results-list__item">
+
+                            {{-- <li class="results-list__item">
                                 <form  class="search-result-form"  action="{{ route('search-add-post') }}" method="POST">
                                     @csrf
                                     <p>Студент</p>
@@ -138,10 +140,10 @@
                                         @endforeach
                                     </p>
                                 </form>
-                            </li>
+                            </li> --}}
 
-                        @endforeach
-                    @endif
+                        {{-- @endforeach
+                    @endif --}}
                     </ul>
                 </div>
     </div>

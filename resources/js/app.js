@@ -91,7 +91,93 @@ $(document).ready(function() {
             data: {name:carentJson},
             method: 'POST',
             success: function (data) {
-                console.log(data)
+                $(".serch-output").empty()
+                if (data.length<=0) {
+                    $('.serch-output').append('<li class="results-list__item">  Ничего не нашлось!!</li>');
+
+                } else {
+                    // переберём массив arr
+                    for (var i = 0; i <= data.length - 1; i++) {
+
+                        var project = data[i];
+                        // console.log(project);
+                        $('.serch-output').append(`<li class="results-list__item">
+                                <form  class="search-result-form"  action="{{ route('search-add-post') }}" method="POST">
+                                    @csrf
+                                    <p>Студент</p>
+                                    <p name=" req-1" value={{ $data->lastname }}>
+                                        <span class="lable">
+                                            фамилия:
+                                        </span>
+                                        {{ $data->lastname }}
+                                        <input type="hidden" name ="lastname" value="{{ $data->lastname}}">
+                                    </p>
+                                    <p>
+                                        <span class="lable">
+                                            Имя:
+                                        </span>
+                                        {{ $data->name }}
+                                        <input type="hidden" name ="stud-name" value="{{ $data->lastname}}">
+                                    </p>
+                                    <p>
+                                        <span class="lable">
+                                            Отчество:
+                                        </span>
+                                        {{ $data->surname }}
+                                        <input type="hidden" name ="surname" value="{{ $data->surname }}">
+                                    </p>
+                                    <p>
+                                        <span class="lable">
+                                            Группа:
+                                        </span>
+                                        <a
+                                            href="{{ route('group-URL') }}{{ $data->group }}"
+                                        >
+                                        {{ $data->group_rus }}
+                                    </a>
+                                    </p>
+
+                                    <button
+                                        id="btn_add_from_search"
+                                        type="submit"
+                                        name="add_from_search"
+                                        value="{{$data->id}}"
+                                        class="main-btn"
+                                        >
+                                        Добавить
+                                    </button>
+                                    <p>
+                                        @foreach( $cartStudents as $stud )
+                                            @if($stud->name == $data->name)
+                                                @if( $stud->surname == $data->surname )
+                                                    @if( $stud->lastname == $data->lastname )
+                                                        @if( $stud->group == $data->group )
+                                                            <div
+                                                                style="color:green;"
+                                                            >
+                                                                Добавлено
+                                                            </div>
+                                                        @else
+
+                                                        @endif
+                                                    @else
+
+                                                    @endif
+                                                @else
+
+                                                @endif
+                                            @else
+
+                                            @endif
+                                        @endforeach
+                                    </p>
+                                </form>
+                            </li>`);
+                    }
+
+                }
+                console.log(data.length)
+
             }
 
         });
