@@ -52,11 +52,11 @@
 
                 <h2 class="man-title">Поиск</h2>
 
-                {{-- <form action="" method="POST"> --}}
+                <form action="" method="POST" onsubmit="return false">
                 {{-- @csrf --}}
                     <input required id="search__inpput" class="search-input" name="search_req" type="text">
-                    <button id="search-btn" сlass="main-btn">Найти</button>
-                {{-- </form> --}}
+                    <button type="submit" id="search-btn" сlass="main-btn">Найти</button>
+                </form>
 
                 <ul class="serch-output results-list" >
 
