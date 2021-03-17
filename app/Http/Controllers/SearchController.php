@@ -13,24 +13,45 @@ class SearchController extends Controller
 
     public function searchPost(Request $request)
     {
-        dd($request->all());
-        $data = $request->search_req;
-        $results = ListStudent::where('name', 'LIKE', '%' . $data . '%')
-                            ->orWhere('surname', 'LIKE', '%' . $data . '%')
-                            ->orWhere('lastname', 'LIKE', '%' . $data . '%')
-                            ->orWhere('group_rus', 'LIKE', '%' . $data . '%')
+        // var_dump($request->name);
+        // $data = $request->all();
+        // var_dump($request->ajax());
+        if( $request->ajax() ) {
+            if( isset($request->name) ) {
+                $data = $request->name;
+                $results = ListStudent::where('name', 'LIKE', '%' . json_decode($data) . '%')
+                            ->orWhere('surname', 'LIKE', '%' . json_decode($data) . '%')
+                            ->orWhere('lastname', 'LIKE', '%' . json_decode($data) . '%')
+                            ->orWhere('group_rus', 'LIKE', '%' . json_decode($data) . '%')
                             ->orderBy('surname', 'ASC')
                             ->get();
-        $group = Group::get();
-        $cartStudents = CardStudent::get();
-        return view('search', compact('results', 'group', 'cartStudents'));
+                return response()->json($results);
+            }
+        }
+        // json_decode($data, true);
+        // 
+        // // var_dump($results);
+        // foreach( $results as $res ) {
+        //     $data = [
+        //         'name' => $res->name,
+        //         'surname' => $res->surname,
+        //         'lastname' => $res->lastname,
+        //         'group' => $res->group
+            // ];
+            // var_dump($data, true);
+        // }
+        // echo $data;
+        // return $res;
+        // $group = Group::get();
+        // $cartStudents = CardStudent::get();
+
     }
 
-    public function searchGet()
+    public function searchGet(Request $request)
     {
 
         $results = null;
-
+        dump($request->all());
         return view('search', compact('results'));
     }
 
