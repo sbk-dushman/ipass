@@ -13,7 +13,7 @@ class SearchController extends Controller
 
     public function searchPost(Request $request)
     {
-        dd($request->all());
+        dd($request->ajax());
         $data = $request->search_req;
         $results = ListStudent::where('name', 'LIKE', '%' . $data . '%')
                             ->orWhere('surname', 'LIKE', '%' . $data . '%')
@@ -23,14 +23,14 @@ class SearchController extends Controller
                             ->get();
         $group = Group::get();
         $cartStudents = CardStudent::get();
-        return view('search', compact('results', 'group', 'cartStudents'));
+        return $request->all();
     }
 
-    public function searchGet()
+    public function searchGet(Request $request)
     {
 
         $results = null;
-
+        dump($request->all());
         return view('search', compact('results'));
     }
 
