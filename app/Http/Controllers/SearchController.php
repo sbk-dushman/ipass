@@ -13,17 +13,29 @@ class SearchController extends Controller
 
     public function searchPost(Request $request)
     {
-        dd($request->all());
-        $data = $request->search_req;
-        $results = ListStudent::where('name', 'LIKE', '%' . $data . '%')
+        if( $request->ajax() ) {
+            if( $request->name ) {
+                $data = json_decode($request->name);
+                $results = ListStudent::where('name', 'LIKE', '%' . $data . '%')
                             ->orWhere('surname', 'LIKE', '%' . $data . '%')
                             ->orWhere('lastname', 'LIKE', '%' . $data . '%')
                             ->orWhere('group_rus', 'LIKE', '%' . $data . '%')
                             ->orderBy('surname', 'ASC')
                             ->get();
-        $group = Group::get();
-        $cartStudents = CardStudent::get();
-        return view('search', compact('results', 'group', 'cartStudents'));
+                return response()->json($results);
+            }
+        }
+        // dd($request->all());
+        // $data = $request->search_req;
+        // $results = ListStudent::where('name', 'LIKE', '%' . $data . '%')
+        //                     ->orWhere('surname', 'LIKE', '%' . $data . '%')
+        //                     ->orWhere('lastname', 'LIKE', '%' . $data . '%')
+        //                     ->orWhere('group_rus', 'LIKE', '%' . $data . '%')
+        //                     ->orderBy('surname', 'ASC')
+        //                     ->get();
+        // $group = Group::get();
+        // $cartStudents = CardStudent::get();
+        // return view('search', compact('results', 'group', 'cartStudents'));
     }
 
     public function searchGet()

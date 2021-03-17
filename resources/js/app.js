@@ -87,11 +87,11 @@ $(document).ready(function() {
         $.ajax({
 
             url: '/search',
-            type:'JSON',
+            // type:'JSON',
             data: {name:carentJson},
             method: 'POST',
             success: function (data) {
-                console.log("success")
+                console.log(data)
             }
 
         });
