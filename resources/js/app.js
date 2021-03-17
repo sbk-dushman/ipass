@@ -88,10 +88,12 @@ $(document).ready(function() {
         $.ajax({
 
             url: '/search',
-            data: carentJson,
+            data: {'name': carentJson},
             method: 'POST',
 
             success: function (data) {
+                
+                // let test = JSON.stringify(data)
                 console.log(data);
                 // $('#search__inpput').val('');
             }
@@ -99,24 +101,24 @@ $(document).ready(function() {
         });
     });
      // поисковой запросV2
-    $('#search__inpput').on("keydown", function (e) {
-        console.log($('#search__inpput').val());
-        let req = $('#search__inpput').val();
-        e.preventDefault();
+    // $('#search__inpput').on("keydown", function (e) {
+    //     console.log($('#search__inpput').val());
+    //     let req = $('#search__inpput').val();
+    //     e.preventDefault();
 
-        let carentJson = JSON.stringify(req);
-        console.log("Уп"+carentJson);
-        $.ajax({
+    //     let carentJson = JSON.stringify(req);
+    //     console.log("Уп"+carentJson);
+    //     $.ajax({
 
-            url: '/search',
-            data: carentJson,
-            method: 'POST',
+    //         url: '/search',
+    //         data: carentJson,
+    //         method: 'POST',
 
-            success: function (data) {
-                // $('#search__inpput').val('');
-            }
+    //         success: function (data) {
+    //             // $('#search__inpput').val('');
+    //         }
 
-        });
+    //     });
 
 
 
