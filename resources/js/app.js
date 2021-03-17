@@ -99,41 +99,40 @@ $(document).ready(function() {
                     // переберём массив arr
                     for (var i = 0; i <= data.length - 1; i++) {
 
-                        var project = data[i];
-                        // console.log(project);
+                        console.log(data[i].name);
                         $('.serch-output').append(`<li class="results-list__item">
                                 <form  class="search-result-form"  action="{{ route('search-add-post') }}" method="POST">
-                                    @csrf
+
                                     <p>Студент</p>
-                                    <p name=" req-1" value={{ $data->lastname }}>
+                                    <p name=" req-1" value=" ${data[i].lastname}">
                                         <span class="lable">
                                             фамилия:
                                         </span>
-                                        {{ $data->lastname }}
-                                        <input type="hidden" name ="lastname" value="{{ $data->lastname}}">
+                                            ${data[i].lastname}
+                                        <input type="hidden" name ="lastname" value="${data[i].lastname}">
                                     </p>
                                     <p>
                                         <span class="lable">
                                             Имя:
                                         </span>
-                                        {{ $data->name }}
-                                        <input type="hidden" name ="stud-name" value="{{ $data->lastname}}">
+                                        ${data[i].name}
+                                        <input type="hidden" name ="stud-name" value="${data[i].name}">
                                     </p>
                                     <p>
                                         <span class="lable">
                                             Отчество:
                                         </span>
-                                        {{ $data->surname }}
-                                        <input type="hidden" name ="surname" value="{{ $data->surname }}">
+                                        ${data[i].surname}
+                                        <input type="hidden" name ="surname" value="${data[i].surname}">
                                     </p>
                                     <p>
                                         <span class="lable">
                                             Группа:
                                         </span>
                                         <a
-                                            href="{{ route('group-URL') }}{{ $data->group }}"
+                                            href="{{ route('group-URL') }}${data[i].group }}"
                                         >
-                                        {{ $data->group_rus }}
+                                        ${data[i].group}
                                     </a>
                                     </p>
 
@@ -141,42 +140,23 @@ $(document).ready(function() {
                                         id="btn_add_from_search"
                                         type="submit"
                                         name="add_from_search"
-                                        value="{{$data->id}}"
+                                        value="${data.id}"
                                         class="main-btn"
                                         >
                                         Добавить
                                     </button>
-                                    <p>
-                                        @foreach( $cartStudents as $stud )
-                                            @if($stud->name == $data->name)
-                                                @if( $stud->surname == $data->surname )
-                                                    @if( $stud->lastname == $data->lastname )
-                                                        @if( $stud->group == $data->group )
+                                    <p
                                                             <div
                                                                 style="color:green;"
                                                             >
                                                                 Добавлено
                                                             </div>
-                                                        @else
-
-                                                        @endif
-                                                    @else
-
-                                                    @endif
-                                                @else
-
-                                                @endif
-                                            @else
-
-                                            @endif
-                                        @endforeach
                                     </p>
                                 </form>
                             </li>`);
                     }
 
                 }
-                console.log(data.length)
 
             }
 
