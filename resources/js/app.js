@@ -77,7 +77,29 @@ $(document).ready(function() {
             }
     });
 
-    });
+    // $('#btn_select'),on("click", function() {
+    //     let select = $('#select').val();
+    //     console.log(select)
+    // })
+    console.log($("select").val())
+    $('#select').on("change", function() {
+        let select = $('#select').val()
+
+        $.ajax({
+            url: '/print',
+            data: {
+                select: select
+            },
+            method: 'POST',
+            success: function (data) {
+                console.log(1)
+                
+            }
+        })
+    })
+
+    // console.log($('#select').val())
+    // });
     // поисковой запрос
     $('#search-btn').on("click", function (e) {
         let req = $('#search__inpput').val();
@@ -92,6 +114,7 @@ $(document).ready(function() {
             method: 'POST',
             success: function (data) {
                 console.log(data)
+                
             }
 
         });
