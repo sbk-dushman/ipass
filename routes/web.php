@@ -11,6 +11,7 @@
 |
 */
 
+use App\Http\Controllers\MainController;
 use App\Http\Controllers\PrintController;
 use App\Http\Controllers\SearchController;
 
@@ -19,7 +20,7 @@ Route::get('/','MainController@home')->name('home-URL');
 Route::match(['get', 'post'], '/group{groupname?}','MainController@group')->name('group-URL');
 Route::post('/group{groupname?}','MainController@addCart');
 Route::get('/selected','MainController@selected')->name('selected-URL');
-Route::post('/selected','MainController@selectedDelete');
+Route::post('/selected1', 'MainController@selectedDelete')->name('selected-remove');
 Route::post('/print','PrintController@getPrint');
 // Дроп файлов
 Route::get('file-upload', 'FileUploadController@fileUpload')->name('file.upload');

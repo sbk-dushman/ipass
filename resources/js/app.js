@@ -55,16 +55,13 @@ $fileInput.on('change', function() {
 });
 // список выбора
 $(document).ready(function() {
-    $('.select_section__btn-remove').click(function (e) {
-    // e.preventDefault();
-        $(this).closest('.select-list__item').remove();
-    });
+
 
     // Добавить из  поиска
 
     $('#btn_add_from_search').click(function (e) {
         e.preventDefault();
-       let req= $(".search-result-form").serializeArray()
+        let req= $(".search-result-form").serializeArray()
         let carentJson = JSON.stringify(req);
         $.ajax({
 
@@ -74,10 +71,15 @@ $(document).ready(function() {
 
         success: function(data) {
             console.log('урааа');
-            }
+        }
     });
-
-    });
+});
+    $('.btn-remove').on("click", function() {
+        let surname = $('#surname').val()
+        let name = $('#name').val()
+        let lastname = $('#lastname').val()
+        console.log(surname)
+    })
     // поисковой запрос
     $('#search-btn').on("click", function (e) {
         let req = $('#search__inpput');

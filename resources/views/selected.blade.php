@@ -74,12 +74,15 @@
                     <tr class="select-list__item">
                         <td>
                             {{ $data->surname }}
+                            <input id="surname" type="hidden" value="{{ $data->surname }}">
                         </td>
                         <td>
                             {{ $data->name }}
+                            <input id="name" name="{{ $loop->index }}{{ $data->name }}" type="hidden" value="{{ $data->name }}">
                         </td>
                         <td>
                             {{ $data->lastname }}
+                            <input id="lastname" type="hidden" value="{{ $data->lastname }}">
                         </td>
                         <td>
                             <select name="{{ $data->id }}" id="">
@@ -87,6 +90,11 @@
                                 <option selected value="2">2</option>
                                 <option value="3">3</option>
                             </select>
+                        </td>
+                        <td>
+                            <diм id="{{ $data->id }}" class="btn-remove">
+                                удалить
+                            </diм>
                         </td>
                     </tr>
                 @endforeach
@@ -100,7 +108,7 @@
             </form>
             
         </table>
-        <table>
+        {{-- <table>
             <th>Дествия</th>
             <tr>
                 @foreach ($studentDatas_s as $item)
@@ -113,7 +121,7 @@
                     </button>
                 @endforeach
             </tr>
-        </table>
+        </table> --}}
     </div>
 
      @if ($studentDatas->total() > $studentDatas->count())
