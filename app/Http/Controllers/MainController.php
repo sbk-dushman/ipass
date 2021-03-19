@@ -58,8 +58,8 @@ class MainController extends Controller
 
     public function selected(Request $request)
     {
-        
-        $studentDatas = CardStudent::get();
+
+        $studentDatas = CardStudent::paginate(1);
         $studentDatas_print = CardStudent::select('id')->get();
         $data_select = [
             'data_one' => '1',
@@ -75,12 +75,12 @@ class MainController extends Controller
         return redirect()->back();
     }
 
-    public function searchPost() 
+    public function searchPost()
     {
         dump(1);
     }
 
-    public function searchGet() 
+    public function searchGet()
     {
         return view('search');
     }

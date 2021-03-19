@@ -65,6 +65,7 @@
             <th>Фамилия:</th>
 			<th>Имя:</th>
 			<th>Отчество:</th>
+            <th>Шаблон</th>
             <th>Дествия</th>
         </tr>
         <tr class="select-list__item">
@@ -116,6 +117,17 @@
             
     </table>
 
+
+    </table>
+     @if ($studentDatas->total() > $studentDatas->count())
+                                <ul class="pagination">
+                                    <li class="pagination__item">
+                                            <div>
+                                                {{$studentDatas->onEachSide(1)->links()}}
+                                            </div>
+                                    </li>
+                                </ul>
+                        @endif
 </div>
 
 @endsection

@@ -12,22 +12,22 @@ class PrintController extends Controller
 {
     public function getPrint(Request $request)
     {
-        // dump($request);
+        dump($request->all());
         $datas = CardStudent::get();
         dump($request->all());
         // $data = CardStudent::where('id', $id)->get();
-        $months = [ 
-            '01' => 'января', 
-            '02' => 'февраля', 
-            '03' => 'марта', 
-            '04' => 'апреля', 
-            '05' => 'мая', 
-            '06' => 'июня', 
-            '07' => 'июля', 
-            '08' => 'августа', 
-            '09' => 'сентября', 
-            '10' => 'октября', 
-            '11' => 'ноября', 
+        $months = [
+            '01' => 'января',
+            '02' => 'февраля',
+            '03' => 'марта',
+            '04' => 'апреля',
+            '05' => 'мая',
+            '06' => 'июня',
+            '07' => 'июля',
+            '08' => 'августа',
+            '09' => 'сентября',
+            '10' => 'октября',
+            '11' => 'ноября',
             '12' => 'декабря'
         ];
         $dateNow = $months[Date::now()->format('m')];

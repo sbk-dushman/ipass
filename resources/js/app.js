@@ -3,28 +3,28 @@ function declOfNum(number, titles) {
   cases = [2, 0, 1, 1, 1, 2];
   return titles[(number % 100 > 4 && number % 100 < 20) ? 2 : cases[(number % 10 < 5) ? number % 10 : 5]];
 }
+    // табы
+// if (document.querySelector('.main-sidebar')!=null) {
+//     let tabs = document.querySelector('.main-sidebar');
+//     let btns = tabs.querySelectorAll('.tab-list__item');
+//     let items = tabs.querySelectorAll('.content-list__item');
 
-if (document.querySelector('.main-sidebar')!=null) {
-    let tabs = document.querySelector('.main-sidebar');
-    let btns = tabs.querySelectorAll('.tab-list__item');
-    let items = tabs.querySelectorAll('.content-list__item');
 
+    // function change(arr, i) {
+    //     arr.forEach(item => {
+    //         item.forEach(i => { i.classList.remove('is-active') })
+    //         item[i].classList.add('is-active')
+    //     })
+    // }
+    // for (let i = 0; i < btns.length; i++) {
+    //     btns[i].addEventListener('click', () => {
+    //         change([btns, items], i)
+    //     })
+    // }
 
-    function change(arr, i) {
-        arr.forEach(item => {
-            item.forEach(i => { i.classList.remove('is-active') })
-            item[i].classList.add('is-active')
-        })
-    }
-    for (let i = 0; i < btns.length; i++) {
-        btns[i].addEventListener('click', () => {
-            change([btns, items], i)
-        })
-    }
-
-} else{
-    console.log('Слайдер скрыт');
-}
+// } else{
+//     console.log('Слайдер скрыт');
+// }
 // дроп файлов
 var $fileInput = $('.file-input');
 var $droparea = $('#drop-area');
@@ -56,7 +56,7 @@ $fileInput.on('change', function() {
 // список выбора
 $(document).ready(function() {
     $('.select_section__btn-remove').click(function (e) {
-    e.preventDefault();
+    // e.preventDefault();
         $(this).closest('.select-list__item').remove();
     });
 
@@ -80,10 +80,12 @@ $(document).ready(function() {
     });
     // поисковой запрос
     $('#search-btn').on("click", function (e) {
-        let req = $('#search__inpput').val();
+        let req = $('#search__inpput');
         // e.preventDefault();
-
-        let carentJson = JSON.stringify(req);
+        if (req.val()=='') {
+                alert("Введите запрос!");
+        } else{
+            let carentJson = JSON.stringify(req.val());
         $.ajax({
 
             url: '/search',
@@ -100,41 +102,40 @@ $(document).ready(function() {
                     // переберём массив arr
                     for (var i = 0; i <= data.length - 1; i++) {
 
-                        var project = data[i];
-                        // console.log(project);
+                        console.log(data);
                         $('.serch-output').append(`<li class="results-list__item">
                                 <form  class="search-result-form"  action="{{ route('search-add-post') }}" method="POST">
-                                    @csrf
+
                                     <p>Студент</p>
-                                    <p name=" req-1" value={{ $data->lastname }}>
+                                    <p name=" req-1" value=" ${data[i].lastname}">
                                         <span class="lable">
                                             фамилия:
                                         </span>
-                                        {{ $data->lastname }}
-                                        <input type="hidden" name ="lastname" value="{{ $data->lastname}}">
+                                            ${data[i].lastname}
+                                        <input type="hidden" name ="lastname" value="${data[i].lastname}">
                                     </p>
                                     <p>
                                         <span class="lable">
                                             Имя:
                                         </span>
-                                        {{ $data->name }}
-                                        <input type="hidden" name ="stud-name" value="{{ $data->lastname}}">
+                                        ${data[i].name}
+                                        <input type="hidden" name ="stud-name" value="${data[i].name}">
                                     </p>
                                     <p>
                                         <span class="lable">
                                             Отчество:
                                         </span>
-                                        {{ $data->surname }}
-                                        <input type="hidden" name ="surname" value="{{ $data->surname }}">
+                                        ${data[i].surname}
+                                        <input type="hidden" name ="surname" value="${data[i].surname}">
                                     </p>
                                     <p>
                                         <span class="lable">
                                             Группа:
                                         </span>
                                         <a
-                                            href="{{ route('group-URL') }}{{ $data->group }}"
+                                            href="{{ route('group-URL') }}${data[i].group }}"
                                         >
-                                        {{ $data->group_rus }}
+                                        ${data[i].group}
                                     </a>
                                     </p>
 
@@ -142,46 +143,30 @@ $(document).ready(function() {
                                         id="btn_add_from_search"
                                         type="submit"
                                         name="add_from_search"
-                                        value="{{$data->id}}"
+                                        value="${data.id}"
                                         class="main-btn"
                                         >
                                         Добавить
                                     </button>
-                                    <p>
-                                        @foreach( $cartStudents as $stud )
-                                            @if($stud->name == $data->name)
-                                                @if( $stud->surname == $data->surname )
-                                                    @if( $stud->lastname == $data->lastname )
-                                                        @if( $stud->group == $data->group )
+                                    <p
                                                             <div
                                                                 style="color:green;"
                                                             >
                                                                 Добавлено
                                                             </div>
-                                                        @else
-
-                                                        @endif
-                                                    @else
-
-                                                    @endif
-                                                @else
-
-                                                @endif
-                                            @else
-
-                                            @endif
-                                        @endforeach
                                     </p>
                                 </form>
                             </li>`);
                     }
 
                 }
-                console.log(data.length)
 
             }
 
         });
+        }
+
+
     });
 
      // поисковой запросV2
