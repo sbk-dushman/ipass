@@ -91,6 +91,7 @@ $(document).ready(function() {
             data: {name:carentJson},
             method: 'POST',
             success: function (data) {
+                console.log(data)
                 $(".serch-output").empty()
                 if (data.length<=0) {
                     $('.serch-output').append('<li class="results-list__item">  Ничего не нашлось!!</li>');

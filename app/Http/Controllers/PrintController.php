@@ -14,7 +14,7 @@ class PrintController extends Controller
     {
         // dump($request);
         $datas = CardStudent::get();
-        
+        dump($request->all());
         // $data = CardStudent::where('id', $id)->get();
         $months = [ 
             '01' => 'января', 
