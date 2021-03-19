@@ -74,11 +74,15 @@ $(document).ready(function() {
         }
     });
 });
-    $('.btn-remove').on("click", function() {
-        let surname = $('#surname').val()
-        let name = $('#name').val()
-        let lastname = $('#lastname').val()
-        console.log(surname)
+    $('.select_section__btn-remove').on("click", function(e) {
+        e.preventDefault();
+        respArr=[];
+        let surname = $('.select-surname').val();
+        let name = $('.select-name').val();
+        let lastname = $('.select-lastname').val();
+
+        let resp = [lastname, name, surname];
+       console.log(resp)
     })
     // поисковой запрос
     $('#search-btn').on("click", function (e) {

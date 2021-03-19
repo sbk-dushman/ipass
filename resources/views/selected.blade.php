@@ -74,27 +74,27 @@
                     <tr class="select-list__item">
                         <td>
                             {{ $data->surname }}
-                            <input id="surname" type="hidden" value="{{ $data->surname }}">
+                            <input class="select-surname" type="hidden" value="{{$data->surname }}">
                         </td>
                         <td>
                             {{ $data->name }}
-                            <input id="name" name="{{ $loop->index }}{{ $data->name }}" type="hidden" value="{{ $data->name }}">
+                            <input class="select-name" name="{{ $loop->index }}{{ $data->name }}" type="hidden" value="{{ $data->name }}">
                         </td>
                         <td>
                             {{ $data->lastname }}
-                            <input id="lastname" type="hidden" value="{{ $data->lastname }}">
+                            <input class="select-lastname" type="hidden" value="{{ $data->lastname }}">
                         </td>
                         <td>
-                            <select name="{{ $data->id }}" id="">
+                            <select name="{{ $data->id }}">
                                 <option value="1">1</option>
                                 <option selected value="2">2</option>
                                 <option value="3">3</option>
                             </select>
                         </td>
                         <td>
-                            <diм id="{{ $data->id }}" class="btn-remove">
+                            <button id="{{ $data->id }}" class="select_section__btn-remove">
                                 удалить
-                            </diм>
+                            </button>
                         </td>
                     </tr>
                 @endforeach
