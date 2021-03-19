@@ -12,7 +12,6 @@ class PrintController extends Controller
 {
     public function getPrint(Request $request)
     {
-        dump($request->all());
         $datas = CardStudent::get();
         dump($request->all());
         // $data = CardStudent::where('id', $id)->get();
