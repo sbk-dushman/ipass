@@ -16,11 +16,13 @@ class PrintController extends Controller
     {
         $datas = CardStudent::get();
         $datass = CardStudent::find('id');
+        // dump($datas);
         $mass = [];
         foreach( $datas as $data ) {
             $mass = Arr::prepend($mass,$data->id);
         }
         $mass = Arr::sortRecursive($mass);
+        // dump($request->all());
         $select = $request->all($mass);
 
         $months = [
@@ -39,5 +41,6 @@ class PrintController extends Controller
         ];
         $dateNow = $months[Date::now()->format('m')];
         return view('print', compact('datas', 'dateNow', 'select'));
+        // return view('print');
     }
 }
