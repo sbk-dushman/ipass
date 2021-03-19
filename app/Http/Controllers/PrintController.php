@@ -7,17 +7,24 @@ use App\ListStudent;
 use App\CardStudent;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Date;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Arr;
 
 class PrintController extends Controller
 {
     public function getPrint(Request $request)
     {
         $datas = CardStudent::get();
-        $id = CardStudent::all();
-        dump($request->all());
-        dump($id->id);
-        // $data = CardStudent::where('id', $id)->get();
-        $data = $request->all();
+        $datass = CardStudent::find('id');
+        // dump($datas);
+        $mass = [];
+        foreach( $datas as $data ) {
+            $mass = Arr::prepend($mass,$data->id);
+        }
+        $mass = Arr::sortRecursive($mass);
+        // dump($request->all());
+        $select = $request->all($mass);
+
         $months = [
             '01' => 'января',
             '02' => 'февраля',
@@ -33,7 +40,7 @@ class PrintController extends Controller
             '12' => 'декабря'
         ];
         $dateNow = $months[Date::now()->format('m')];
-        return view('print', compact('datas', 'dateNow'));
+        return view('print', compact('datas', 'dateNow', 'select'));
         // return view('print');
     }
 }
