@@ -71,9 +71,10 @@ class MainController extends Controller
 
     public function selectedDelete(Request $request)
     {
+        dd(1);
         $studId = $request->issetStud;
         CardStudent::where('id', $studId)->delete();
-        return redirect()->back();
+        //return redirect()->back();
     }
 
     public function searchPost()
