@@ -60,12 +60,13 @@ class MainController extends Controller
     {
 
         $studentDatas = CardStudent::paginate(1);
+        $studentDatas_s = CardStudent::get();
         $studentDatas_print = CardStudent::select('id')->get();
         $data_select = [
             'data_one' => '1',
             'data_two' => '2'
         ];
-        return view('selected', compact('studentDatas', 'studentDatas_print', 'data_select'));
+        return view('selected', compact('studentDatas_s', 'studentDatas', 'studentDatas_print', 'data_select'));
     }
 
     public function selectedDelete(Request $request)

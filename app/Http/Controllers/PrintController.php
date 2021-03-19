@@ -12,10 +12,12 @@ class PrintController extends Controller
 {
     public function getPrint(Request $request)
     {
-        dump($request->all());
         $datas = CardStudent::get();
+        $id = CardStudent::all();
         dump($request->all());
+        dump($id->id);
         // $data = CardStudent::where('id', $id)->get();
+        $data = $request->all();
         $months = [
             '01' => 'января',
             '02' => 'февраля',

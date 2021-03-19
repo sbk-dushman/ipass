@@ -71,7 +71,7 @@
         <tr class="select-list__item">
             <form action="{{ route('print-get') }}">
                 @csrf
-                @foreach($studentDatas as $data)
+                @foreach($studentDatas_s as $data)
                     <td>
                         {{ $data->surname }}
                     </td>
