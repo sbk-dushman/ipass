@@ -3,7 +3,7 @@
     <div class="main-content search">
          <div class="main-content__header">
 
-                        <a class="step-back" href="{{ route('home-URL') }}">
+                    <a class="step-back" href="{{ route('home-URL') }}">
                             <svg class="arrow-icon" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                                 viewBox="0 0 447.243 447.243" style="enable-background:new 0 0 447.243 447.243;" xml:space="preserve">
                                 <g>
@@ -52,100 +52,40 @@
 
                 <h2 class="man-title">Поиск</h2>
 
-                <form action="" method="POST" onsubmit="return false">
-                {{-- @csrf --}}
+                <form action="{{ route('search-get') }}" method="POST">
+                    @csrf
                     <input required id="search__inpput" placeholder="Введите запрос"  class="search-input" name="search_req" type="text">
                     <button type="submit" id="search-btn" сlass="main-btn">Найти</button>
 
                 </form>
-
+                <div id="id"></div>
                 <ul class="serch-output results-list" >
-
-                    {{-- @if ($results == null) --}}
-                    {{-- <li class="results-list__item">  Ничего не нашлось!!</li> --}}
-                    {{-- @elseif ($results->count() <= 0) --}}
-                        {{-- Ничего не нашлось!!
-                    @else --}}
-                        {{-- @foreach ($results as $data) --}}
-
-
-                            {{-- <li class="results-list__item">
-                                <form  class="search-result-form"  action="{{ route('search-add-post') }}" method="POST">
-                                    @csrf
-                                    <p>Студент</p>
-                                    <p name=" req-1" value={{ $data->lastname }}>
-                                        <span class="lable">
-                                            фамилия:
-                                        </span>
-                                        {{ $data->lastname }}
-                                        <input type="hidden" name ="lastname" value="{{ $data->lastname}}">
-                                    </p>
-                                    <p>
-                                        <span class="lable">
-                                            Имя:
-                                        </span>
-                                        {{ $data->name }}
-                                        <input type="hidden" name ="stud-name" value="{{ $data->lastname}}">
-                                    </p>
-                                    <p>
-                                        <span class="lable">
-                                            Отчество:
-                                        </span>
-                                        {{ $data->surname }}
-                                        <input type="hidden" name ="surname" value="{{ $data->surname }}">
-                                    </p>
-                                    <p>
-                                        <span class="lable">
-                                            Группа:
-                                        </span>
-                                        <a
-                                            href="{{ route('group-URL') }}{{ $data->group }}"
-                                        >
-                                        {{ $data->group_rus }}
-                                    </a>
-                                    </p>
-
-                                    <button
-                                        id="btn_add_from_search"
-                                        type="submit"
-                                        name="add_from_search"
-                                        value="{{$data->id}}"
-                                        class="main-btn"
-                                        >
-                                        Добавить
-                                    </button>
-                                    <p>
-                                        @foreach( $cartStudents as $stud )
-                                            @if($stud->name == $data->name)
-                                                @if( $stud->surname == $data->surname )
-                                                    @if( $stud->lastname == $data->lastname )
-                                                        @if( $stud->group == $data->group )
-                                                            <div
-                                                                style="color:green;"
-                                                            >
-                                                                Добавлено
-                                                            </div>
-                                                        @else
-
-                                                        @endif
-                                                    @else
-
-                                                    @endif
-                                                @else
-
-                                                @endif
-                                            @else
-
-                                            @endif
-                                        @endforeach
-                                    </p>
-                                </form>
-                            </li> --}}
-
-                        {{-- @endforeach
-                    @endif --}}
-                    </ul>
-                </div>
+                    <table class="main-content select-list">
+                        <tr>
+                            <td>Фамилия</td>
+                            <td>Имя</td>
+                            <td>Фамилия</td>
+                            <td>Группа</td>
+                            <td></td>
+                        </tr>
+                        @foreach ($results as $item)
+                        <tr style="height: 50px;" class="select-list__item">
+                            <td>{{$item->surname}}</td>
+                            <td>{{$item->name}}</td>
+                            <td>{{$item->lastname}}</td>
+                            <td>
+                                <a href="{{ route('group-URL') }}{{ $item->group }}">{{$item->group_rus}}</a>
+                            </td>
+                            <td>
+                                <button class="">
+                                    Добави
+                                </button>
+                            </td>
+                        </tr>
+                        @endforeach
+                    </table>
+                </ul>
+            </div>
     </div>
 
 @endsection

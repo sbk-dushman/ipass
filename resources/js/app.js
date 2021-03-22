@@ -85,95 +85,97 @@ $(document).ready(function() {
        console.log(resp)
     })
     // поисковой запрос
-    $('#search-btn').on("click", function (e) {
-        let req = $('#search__inpput');
-        // e.preventDefault();
-        if (req.val()=='') {
-                alert("Введите запрос!");
-        } else{
-            let carentJson = JSON.stringify(req.val());
-        $.ajax({
+    
+    // $('#search-btn').on("click", function (e) {
+    //     let req = $('#search__inpput');
+    //     // e.preventDefault();
+    //     if (req.val()=='') {
+    //             alert("Введите запрос!");
+    //     } else{
+    //         let carentJson = JSON.stringify(req.val());
+    //     $.ajax({
 
-            url: '/search',
-            // type:'JSON',
-            data: {name:carentJson},
-            method: 'POST',
-            success: function (data) {
-                console.log(data)
-                $(".serch-output").empty()
-                if (data.length<=0) {
-                    $('.serch-output').append('<li class="results-list__item">  Ничего не нашлось!!</li>');
+    //         url: '/search',
+    //         // type:'JSON',
+    //         data: {name:carentJson},
+    //         method: 'POST',
+    //         success: function (data) {
+    //             console.log(data)
+    //             $(".serch-output").empty()
+    //             if (data.length<=0) {
+    //                 $('.serch-output').append('<li class="results-list__item">  Ничего не нашлось!!</li>');
 
-                } else {
-                    // переберём массив arr
-                    for (var i = 0; i <= data.length - 1; i++) {
+    //             } else {
+    //                 // переберём массив arr
+    //                 for (var i = 0; i <= data.length - 1; i++) {
+                        
+    //                     console.log(data);
+    //                     $('#id').html(data[i].lastname)
+    //                     $('.serch-output').append(`<li class="results-list__item">
+    //                             <form  class="search-result-form"  action="{{ route('search-add-post') }}" method="POST">
 
-                        console.log(data);
-                        $('.serch-output').append(`<li class="results-list__item">
-                                <form  class="search-result-form"  action="{{ route('search-add-post') }}" method="POST">
+    //                                 <p>Студент</p>
+    //                                 <p name=" req-1" value=" ${data[i].lastname}">
+    //                                     <span class="lable">
+    //                                         фамилия:
+    //                                     </span>
+    //                                         ${data[i].lastname}
+    //                                     <input type="hidden" name ="lastname" value="${data[i].lastname}">
+    //                                 </p>
+    //                                 <p>
+    //                                     <span class="lable">
+    //                                         Имя:
+    //                                     </span>
+    //                                     ${data[i].name}
+    //                                     <input type="hidden" name ="stud-name" value="${data[i].name}">
+    //                                 </p>
+    //                                 <p>
+    //                                     <span class="lable">
+    //                                         Отчество:
+    //                                     </span>
+    //                                     ${data[i].surname}
+    //                                     <input type="hidden" name ="surname" value="${data[i].surname}">
+    //                                 </p>
+    //                                 <p>
+    //                                     <span class="lable">
+    //                                         Группа:
+    //                                     </span>
+    //                                     <a
+    //                                         href="{{ route('group-URL') }}${data[i].group }"
+    //                                     >
+    //                                     ${data[i].group}
+    //                                 </a>
+    //                                 </p>
 
-                                    <p>Студент</p>
-                                    <p name=" req-1" value=" ${data[i].lastname}">
-                                        <span class="lable">
-                                            фамилия:
-                                        </span>
-                                            ${data[i].lastname}
-                                        <input type="hidden" name ="lastname" value="${data[i].lastname}">
-                                    </p>
-                                    <p>
-                                        <span class="lable">
-                                            Имя:
-                                        </span>
-                                        ${data[i].name}
-                                        <input type="hidden" name ="stud-name" value="${data[i].name}">
-                                    </p>
-                                    <p>
-                                        <span class="lable">
-                                            Отчество:
-                                        </span>
-                                        ${data[i].surname}
-                                        <input type="hidden" name ="surname" value="${data[i].surname}">
-                                    </p>
-                                    <p>
-                                        <span class="lable">
-                                            Группа:
-                                        </span>
-                                        <a
-                                            href="{{ route('group-URL') }}${data[i].group }}"
-                                        >
-                                        ${data[i].group}
-                                    </a>
-                                    </p>
+    //                                 <button
+    //                                     id="btn_add_from_search"
+    //                                     type="submit"
+    //                                     name="add_from_search"
+    //                                     value="${data.id}"
+    //                                     class="main-btn"
+    //                                     >
+    //                                     Добавить
+    //                                 </button>
+    //                                 <p
+    //                                                         <div
+    //                                                             style="color:green;"
+    //                                                         >
+    //                                                             Добавлено
+    //                                                         </div>
+    //                                 </p>
+    //                             </form>
+    //                         </li>`);
+    //                 }
 
-                                    <button
-                                        id="btn_add_from_search"
-                                        type="submit"
-                                        name="add_from_search"
-                                        value="${data.id}"
-                                        class="main-btn"
-                                        >
-                                        Добавить
-                                    </button>
-                                    <p
-                                                            <div
-                                                                style="color:green;"
-                                                            >
-                                                                Добавлено
-                                                            </div>
-                                    </p>
-                                </form>
-                            </li>`);
-                    }
+    //             }
 
-                }
+    //         }
 
-            }
-
-        });
-        }
+    //     });
+    //     }
 
 
-    });
+    // });
 
      // поисковой запросV2
     // $('#search__inpput').on("keydown", function (e) {

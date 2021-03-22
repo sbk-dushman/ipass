@@ -98,7 +98,7 @@
                         </td>
                     </tr>
                 @endforeach
-                <button class="select-section__btn-print"
+                <button class="main-btn"
                         href=""
                         name="printid"
                         type="submit"
