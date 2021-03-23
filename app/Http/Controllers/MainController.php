@@ -73,13 +73,10 @@ class MainController extends Controller
     public function selectedDelete(Request $request)
     {
         if( $request->ajax() ) {
-
             $studId = $request->response;
             CardStudent::where('id', $studId)->delete();
         }
         
-        
-        return $request->response;
     }
 
     public function searchPost()

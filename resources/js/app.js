@@ -6,15 +6,13 @@ function declOfNum(number, titles) {
 function getStudId(contex,url) {
     let studID = $(contex).attr("data-studID");
     let response = studID;
-    console.log(response)
     $.ajax({
 
-        url: `/${url}`,
+        url: '/'+url,
         data: { response },
         method: 'POST',
 
         success: function (data) {
-            console.log("ПЕРЕДАННЫЙ ID:"+response)
         }
     });
 }
@@ -55,6 +53,7 @@ $(document).ready(function() {
 
     $('.btn_add_from_search').on("click", function (e) {
         e.preventDefault();
+        // console.log(1)
         getStudId(this,'search');
         // старая версия
         // let req= $(".search-result-form").serializeArray()

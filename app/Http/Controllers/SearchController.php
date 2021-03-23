@@ -13,17 +13,47 @@ class SearchController extends Controller
 
     public function searchPost(Request $request)
     {
-        $data = $request->search_req;
-        $results = ListStudent::where('name', 'LIKE', '%' . $data . '%')
-                            ->orWhere('surname', 'LIKE', '%' . $data . '%')
-                            ->orWhere('lastname', 'LIKE', '%' . $data . '%')
-                            ->orWhere('group_rus', 'LIKE', '%' . $data . '%')
-                            ->orderBy('surname', 'ASC')
-                    // ->paginate(1);
-                    ->get();
-        $cartStudents = CardStudent::get();
+        // dd($request->all());
+        if( $request->search_req ) {
+            $data = $request->search_req;
+            $results = ListStudent::where('name', 'LIKE', '%' . $data . '%')
+                                ->orWhere('surname', 'LIKE', '%' . $data . '%')
+                                ->orWhere('lastname', 'LIKE', '%' . $data . '%')
+                                ->orWhere('group_rus', 'LIKE', '%' . $data . '%')
+                                ->orderBy('surname', 'ASC')
+                        // ->paginate(1);
+                        ->get();
+            $cartStudents = CardStudent::get();
 
-        return view('search', compact('results', 'cartStudents'));
+            return view('search', compact('results', 'cartStudents'));
+        }
+        elseif( $request->response ) {
+            $data = $request->response;
+            $StudName = ListStudent::where('id', $data)
+                                    ->value('name');
+            $StudSurname = ListStudent::where('id', $data)
+                                    ->value('surname');
+            $StudLastname = ListStudent::where('id', $data)
+                                    ->value('lastname');
+            $StudGroup = ListStudent::where('id', $data)
+                                    ->value('group');
+            $issetName = CardStudent::where([
+                'name' => $StudName,
+                'surname' => $StudSurname,
+                'lastname' => $StudLastname,
+                'group' => $StudGroup
+            ])->value('id');
+            if( $issetName == true ) {
+                return redirect()->back();
+            }else {
+                DB::table('card_students')->insert([
+                    'name' => $StudName,
+                    'surname' => $StudSurname,
+                    'lastname' => $StudLastname,
+                    'group' => $StudGroup
+                ]);
+            }
+        }
     }
 
     public function searchGet()
@@ -36,7 +66,11 @@ class SearchController extends Controller
 
     public function searchAddPost(Request $request)
     {
-        $data = $request->add_to_cart;
+        if( $request->ajax() ) {
+            return $request->ajax();
+        }
+        return $request->response;
+        $data = $request->response;
         $StudName = ListStudent::where('id', $data)
                                 ->value('name');
         $StudSurname = ListStudent::where('id', $data)
