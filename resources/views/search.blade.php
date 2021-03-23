@@ -60,11 +60,16 @@
                 </form>
                 {{-- <div id="id"></div>
                 <ul class="serch-output results-list" > --}}
-
-                    @if ($results->count()<=0)
-                            <div class="alert alert-success alert-block">
-                            Ничего не нашлось
+                     @if ($results==NULL)
+                                  <div class="alert alert-success alert-block">
+                                    Пока нет резултвтов
                         </div>
+
+                     @elseif ($results->count()<=0)
+                            <div class="alert alert-success alert-block">
+                                Ничего не нашлось
+                             </div>
+
                     @else
                         <table class="main-content select-list">
 
@@ -94,11 +99,17 @@
                         @endforeach
                         </tbody>
                     </table>
+                     {{-- @if ( $results->total() > $results->count())
+                        <ul class="pagination">
+                              <li class="pagination__item">
+                                    <div>
+                                          {{$results->onEachSide(1)->links()}}
+                                    </div>
+                              </li>
+                        </ul>
+                  @endif --}}
                     @endif
 
-
-                {{-- </ul>
-            </div> --}}
     </div>
 
 @endsection

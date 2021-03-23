@@ -19,8 +19,10 @@ class SearchController extends Controller
                             ->orWhere('lastname', 'LIKE', '%' . $data . '%')
                             ->orWhere('group_rus', 'LIKE', '%' . $data . '%')
                             ->orderBy('surname', 'ASC')
-                            ->get();
+                    // ->paginate(1);
+                    ->get();
         $cartStudents = CardStudent::get();
+
         return view('search', compact('results', 'cartStudents'));
     }
 
