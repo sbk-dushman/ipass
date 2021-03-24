@@ -9,103 +9,30 @@
 
 @extends('master')
 @section('content')
-
-
-        <div class="grid-containerr">
-          <div class="table">1</div>
-          <div class="groups-name">2</div>
-          <div class="groups">
-            <div class="box_group">
-              17is2
-            </div>
-            <div class="box_group">
-              17is2
-            </div>
-            <div class="box_group">
-              17is2
-            </div>
-            <div class="box_group">
-              17is2
-            </div>
-            <div class="box_group">
-              17is2
-            </div>
-            <div class="box_group">
-              17is2
-            </div>
-            <div class="box_group">
-              17is2
-            </div>
-            <div class="box_group">
-              17is2
-            </div>
-            <div class="box_group">
-              17is2
-            </div>
-            <div class="box_group">
-              17is2
-            </div>
-            <div class="box_group">
-              17is2
-            </div>
-            <div class="box_group">
-              17is2
-            </div>
-
-            <div class="box_group">
-              17is2
-            </div>
-
-            <div class="box_group">
-              17is2
-            </div>
-            <div class="box_group">
-              17is2
-            </div>
-            <div class="box_group">
-              17is2
-            </div>
-            <div class="box_group">
-              17is2
-            </div>
-            <div class="box_group">
-              17is2
-            </div>
-            <div class="box_group">
-              17is2
-            </div>
-            <div class="box_group">
-              17is2
-            </div>
-            <div class="box_group">
-              17is2
-            </div>
-            <div class="box_group">
-              17is2
-            </div>
-            <div class="box_group">
-              17is2
-            </div>
-            <div class="box_group">
-              17is2
-            </div>
-            <div class="box_group">
-              17is2
-            </div>
-            <div class="box_group">
-              17is2
-            </div>
-            <div class="box_group">
-              17is2
-            </div>
-            <div class="box_group">
-              17is2
-            </div>
-
-          </div>
-          <div class="pag-group">4</div>
-          <div class="pag-table">5</div>
-        </div>
+	<div class="grid-containerr">
+			@section('groups')
+				<div class="groups">
+					@foreach ($groups as $group)
+						<div class="box_group">
+							<a href="{{route('group-URL')}}{{$group->codegroup}}">{{$group->group}}</a>
+						</div>
+					@endforeach
+				</div>
+				<div class="pag-group">
+					@if ($groups->total() > $groups->count())
+						<ul class="pagination">
+							<li class="pagination__item">
+								<div>
+									{{$groups->onEachSide(1)->links()}}
+								</div>
+							</li>
+						</ul>
+					@endif
+				</div>
+			@show
+			
+			@yield('tabel-group')
+	</div>
 
 
 @endsection

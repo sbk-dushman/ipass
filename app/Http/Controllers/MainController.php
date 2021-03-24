@@ -13,9 +13,10 @@ use Psy\CodeCleaner\FunctionReturnInWriteContextPass;
 class MainController extends Controller
 {
     public function home(){
-        $groups = Group::paginate(6);
+        $groups_pag = Group::paginate(0);
+        $groups = Group::get();
         // return view('home', compact('groups'));
-        return view('Nhome', compact('groups'));
+        return view('Nhome', compact('groups', 'groups_pag'));
     }
 
     public function addCart(Request $request)
@@ -54,7 +55,10 @@ class MainController extends Controller
         $students = ListStudent::where('group', $groupname)->orderBy('surname', 'ASC')->get();
         $cartStudents = CardStudent::get();
         $sort = $request->sort;
-        return view('group', compact('students', 'cartStudents', 'sort'));
+        $groups = Group::get();
+        $groups_pag = Group::paginate(1);
+        // $groups = Group::paginate(6);
+        return view('tabelGroup', compact('students', 'cartStudents', 'sort'));
     }
 
     public function selected(Request $request)

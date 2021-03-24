@@ -11,13 +11,19 @@
 |
 */
 
+use App\Http\Controllers\GetController;
 use App\Http\Controllers\PrintController;
 use App\Http\Controllers\SearchController;
 
 
-Route::get('/','MainController@home')->name('home-URL');
-Route::match(['get', 'post'], '/group{groupname?}','MainController@group')->name('group-URL');
-Route::post('/group{groupname?}','MainController@addCart');
+Route::get('/', 'GetController@group')->name('groups');
+Route::get('/group{groupname?}', 'GetController@group_table')->name('group-URL');
+
+// Route::get('/group','MainController@home')->name('home-URL');
+// Route::get('/group{groupname?}','MainController@group');
+
+// Route::match(['get', 'post'], '/group{groupname?}','MainController@group')->name('group-URL');
+// Route::post('/group{groupname?}','MainController@addCart');
 Route::get('/selected','MainController@selected')->name('selected-URL');
 Route::post('/selected','MainController@selectedDelete');
 Route::post('/print','PrintController@getPrint');
