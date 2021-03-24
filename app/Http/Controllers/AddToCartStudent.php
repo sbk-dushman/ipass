@@ -8,6 +8,6 @@ class AddToCartStudent extends Controller
 {
     public function addCart(Request $request)
     {
-        
+        dd(1)
     }
 }

@@ -58,34 +58,58 @@
                     <button type="submit" id="search-btn" сlass="main-btn">Найти</button>
 
                 </form>
-                <div id="id"></div>
-                <ul class="serch-output results-list" >
-                    <table class="main-content select-list">
-                        <tr>
-                            <td>Фамилия</td>
-                            <td>Имя</td>
-                            <td>Фамилия</td>
-                            <td>Группа</td>
-                            <td></td>
-                        </tr>
-                        @foreach ($results as $item)
-                        <tr style="height: 50px;" class="select-list__item">
-                            <td>{{$item->surname}}</td>
-                            <td>{{$item->name}}</td>
-                            <td>{{$item->lastname}}</td>
-                            <td>
-                                <a href="{{ route('group-URL') }}{{ $item->group }}">{{$item->group_rus}}</a>
-                            </td>
-                            <td>
-                                <button class="">
-                                    Добави
-                                </button>
-                            </td>
-                        </tr>
+                {{-- <div id="id"></div>
+                <ul class="serch-output results-list" > --}}
+                     @if ($results==NULL)
+                                  <div class="alert alert-success alert-block">
+                                    Пока нет резултвтов
+                        </div>
+
+                     @elseif ($results->count()<=0)
+                            <div class="alert alert-success alert-block">
+                                Ничего не нашлось
+                             </div>
+
+                    @else
+                        <table class="main-content select-list">
+
+                            <tr>
+                                <th>Фамилия</th>
+                                <th>Имя</th>
+                                <th>Отчество</th>
+                                <th>Группа</th>
+                                <th>Дествия</th>
+                            </tr>
+                            <tbody>
+                                 @foreach ($results as $item)
+
+                                 <tr style="height: 50px;" class="select-list__item ">
+                                                        <td>{{$item->lastname}}</td>
+                                                        <td>{{$item->name}}</td>
+                                                        <td>{{$item->surname}}</td>
+                                                        <td>
+                                                            <a href="{{ route('group-URL') }}{{ $item->group }}">{{$item->group_rus}}</a>
+                                                        </td>
+                                                        <td>
+                                                            <button data-addId="{{$item->id}}" id="btn_add_from_search" class="main-btn">
+                                                                Добавить
+                                                            </button>
+                                                        </td>
+                                                    </tr>
                         @endforeach
+                        </tbody>
                     </table>
-                </ul>
-            </div>
+                     {{-- @if ( $results->total() > $results->count())
+                        <ul class="pagination">
+                              <li class="pagination__item">
+                                    <div>
+                                          {{$results->onEachSide(1)->links()}}
+                                    </div>
+                              </li>
+                        </ul>
+                  @endif --}}
+                    @endif
+
     </div>
 
 @endsection

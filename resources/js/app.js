@@ -61,27 +61,39 @@ $(document).ready(function() {
 
     $('#btn_add_from_search').click(function (e) {
         e.preventDefault();
-        let req= $(".search-result-form").serializeArray()
-        let carentJson = JSON.stringify(req);
+        // старая версия
+        // let req= $(".search-result-form").serializeArray()
+        // let carentJson = JSON.stringify(req);
+        // console.log(carentJson)
+    //     $.ajax({
+
+    //         url: '/search',
+    //         data: carentJson,
+    //         method: 'POST',
+
+    //     success: function(data) {
+    //         console.log('урааа');
+    //     }
+    // });
+});
+    $('.select_section__btn-remove').on("click", function(e) {
+        e.preventDefault();
+        let studID=$(this).attr("data-studID");
+        let respons = [`dellId: ${studID}`];
+        console.log(respons)
         $.ajax({
 
-            url: '/search',
-            data: carentJson,
+            url: '/selected',
+            data: respons,
             method: 'POST',
 
-        success: function(data) {
-            console.log('урааа');
-        }
-    });
-});
-    $('.btn-remove').on("click", function() {
-        let surname = $('#surname').val()
-        let name = $('#name').val()
-        let lastname = $('#lastname').val()
-        console.log(surname)
+            success: function (data) {
+                console.log("asxc")
+            }
+        });
     })
     // поисковой запрос
-    
+
     // $('#search-btn').on("click", function (e) {
     //     let req = $('#search__inpput');
     //     // e.preventDefault();
@@ -104,7 +116,7 @@ $(document).ready(function() {
     //             } else {
     //                 // переберём массив arr
     //                 for (var i = 0; i <= data.length - 1; i++) {
-                        
+
     //                     console.log(data);
     //                     $('#id').html(data[i].lastname)
     //                     $('.serch-output').append(`<li class="results-list__item">

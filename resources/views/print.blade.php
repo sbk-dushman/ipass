@@ -27,7 +27,7 @@
                     <div class="params">
                         <div class="lastname">
                             <pre>Фамилия</pre>
-                            {{ $data->surname }}
+                            {{ $data->lastname }}
                         </div>
                         <div class="firstname">
                             <pre>Имя</pre>
@@ -35,7 +35,7 @@
                         </div>
                         <div class="patronymic">
                             <pre>Отчество</pre>
-                            {{ $data->lastname }}
+                            {{ $data->surname }}
                         </div>
                         <div class="position">
                             <pre>Должность</pre>
@@ -62,14 +62,14 @@
                         </div>
                         <div class="info">
                             <div class="stud">СТУДЕНЧЕСКИЙ БИЛЕТ №<span class="stud-number">777-777</span></div>
-                            <div class="stud-surname">Фамилия <span class="surname">{{ $data->surname }}</span></div>
+                            <div class="stud-surname">Фамилия <span class="surname">{{ $data->lastname }}</span></div>
                             <div class="stud-name">
                                 Имя
                                 <span class="name">{{ $data->name }}</span>
                             </div>
                             <div class="stud-name">
                                 отчество
-                                <span class="name">{{ $data->lastname }}</span>
+                                <span class="name"> {{ $data->surname }} </span>
                             </div>
                             <div class="stud-form">Форма обучения <span class="form">{{ $data->form_of_education }}</span></div>
                             <div class="stud-order">Зачислен приказом от <span class="order-date">{{ $data->date_of_enrollment }}</span> №<span
@@ -289,14 +289,22 @@
     }
 
     @media print {
+        /* .header-left-top, .a-right-bottom, .time-right-bottom {
+            display: none;
+        } */
+
         .card-block {
             margin-top: 1px;
             /*display: none;*/
         }
-        .breaker {
-            page-break-after: always;
+        .teach-card,.card-wrap-figure2,.card-wrap-figure  {
+        -webkit-print-color-adjust: exact;
         }
+        .studcard {
+            page-break-inside: avoid;
     }
+
+
 
 		.teach-card__logo {
 			margin-left: 28px;
@@ -343,7 +351,7 @@
 		}
 </style>
 
-{{-- <style>
+<style>
     html, body {
         margin: 0;
         font-family: 'Times New Roman';
@@ -482,7 +490,7 @@
             page-break-after: always;
         }
     }
-</style> --}}
+</style>
 <script>
     function getAllUrlParams(url) {
 
@@ -760,7 +768,7 @@
         }
         });
         });
-</script>
+</script> --}}
 </body>
 </html>
 

@@ -59,8 +59,9 @@ class MainController extends Controller
     public function selected(Request $request)
     {
 
-        $studentDatas = CardStudent::paginate(1);
-        $studentDatas_s = CardStudent::get();
+        $studentDatas = CardStudent::paginate(10);
+        // $studentDatas_s = CardStudent::get();
+        $studentDatas_s = CardStudent::paginate(10);
         $studentDatas_print = CardStudent::select('id')->get();
         $data_select = [
             'data_one' => '1',
