@@ -7,6 +7,7 @@
     <title>Document</title>
     {{-- <link rel="stylesheet" href="/css/all.css"> --}}
     <link rel="stylesheet" href="{{ asset('css/all.css') }}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 </head>
 <body>
     <main class="grid-container">
@@ -14,7 +15,7 @@
             <aside class="sidebar">
                 <div class="container">
                     <ul class="link-list">
-                        <li class="link-list__item"><a href="{{ route('groups') }}">1</a></li>
+                        <li class="link-list__item"><a href="{{ route('groups') }}"><i class="fas fa-table"></i></a></li>
                         <li class="link-list__item"><a href="{{ route('search-get') }}">2</a></li>
                         <li class="link-list__item"><a href="#">3</a></li>
                         <li class="link-list__item"><a href="#">4</a></li>
