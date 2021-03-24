@@ -67,9 +67,12 @@
                     @foreach ($errors->all() as $error)
                         <li>{{ $error }}</li>
                     @endforeach
+                    <div class="true">{{ success }}</div>
                 </ul>
+                
             </div>
         @endif
+        
     <div class="drop-area" id="drop-area">
         <form  action="{{ route('file.upload.post') }}" method="POST" enctype="multipart/form-data">
 
