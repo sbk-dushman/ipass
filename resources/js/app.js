@@ -3,28 +3,22 @@ function declOfNum(number, titles) {
   cases = [2, 0, 1, 1, 1, 2];
   return titles[(number % 100 > 4 && number % 100 < 20) ? 2 : cases[(number % 10 < 5) ? number % 10 : 5]];
 }
-    // табы
-// if (document.querySelector('.main-sidebar')!=null) {
-//     let tabs = document.querySelector('.main-sidebar');
-//     let btns = tabs.querySelectorAll('.tab-list__item');
-//     let items = tabs.querySelectorAll('.content-list__item');
+function getStudId(contex,url) {
+    let studID = $(contex).attr("data-studID");
+    let response = studID;
+    console.log(response)
+    $.ajax({
 
+        url: `/${url}`,
+        data: { response },
+        method: 'POST',
 
-    // function change(arr, i) {
-    //     arr.forEach(item => {
-    //         item.forEach(i => { i.classList.remove('is-active') })
-    //         item[i].classList.add('is-active')
-    //     })
-    // }
-    // for (let i = 0; i < btns.length; i++) {
-    //     btns[i].addEventListener('click', () => {
-    //         change([btns, items], i)
-    //     })
-    // }
+        success: function (data) {
+            console.log("ПЕРЕДАННЫЙ ID:"+response)
+        }
+    });
+}
 
-// } else{
-//     console.log('Слайдер скрыт');
-// }
 // дроп файлов
 var $fileInput = $('.file-input');
 var $droparea = $('#drop-area');
@@ -59,8 +53,9 @@ $(document).ready(function() {
 
     // Добавить из  поиска
 
-    $('#btn_add_from_search').on("click", function (e) {
+    $('.btn_add_from_search').on("click", function (e) {
         e.preventDefault();
+        getStudId(this,'search');
         // старая версия
         // let req= $(".search-result-form").serializeArray()
         // let carentJson = JSON.stringify(req);
@@ -78,20 +73,8 @@ $(document).ready(function() {
 });
     $('.select_section__btn-remove').on("click", function(e) {
         e.preventDefault();
+        getStudId(this,'selected');  //функция приёма id и url для ajax запроса
         $(this).closest('.select-list__item').remove();
-        let studID=$(this).attr("data-studID");
-        let response = studID;
-        console.log(response)
-        $.ajax({
-
-            url: '/selected',
-            data: {response},
-            method: 'POST',
-
-            success: function (data) {
-                console.log(data)
-            }
-        });
     })
     // поисковой запрос
 
@@ -263,3 +246,25 @@ $(document).ready(function() {
 //                 }
 //             }
 
+    // табы
+// if (document.querySelector('.main-sidebar')!=null) {
+//     let tabs = document.querySelector('.main-sidebar');
+//     let btns = tabs.querySelectorAll('.tab-list__item');
+//     let items = tabs.querySelectorAll('.content-list__item');
+
+
+    // function change(arr, i) {
+    //     arr.forEach(item => {
+    //         item.forEach(i => { i.classList.remove('is-active') })
+    //         item[i].classList.add('is-active')
+    //     })
+    // }
+    // for (let i = 0; i < btns.length; i++) {
+    //     btns[i].addEventListener('click', () => {
+    //         change([btns, items], i)
+    //     })
+    // }
+
+// } else{
+//     console.log('Слайдер скрыт');
+// }
