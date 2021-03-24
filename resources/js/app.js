@@ -59,7 +59,7 @@ $(document).ready(function() {
 
     // Добавить из  поиска
 
-    $('#btn_add_from_search').click(function (e) {
+    $('#btn_add_from_search').on("click", function (e) {
         e.preventDefault();
         // старая версия
         // let req= $(".search-result-form").serializeArray()
@@ -78,17 +78,18 @@ $(document).ready(function() {
 });
     $('.select_section__btn-remove').on("click", function(e) {
         e.preventDefault();
+        $(this).closest('.select-list__item').remove();
         let studID=$(this).attr("data-studID");
-        let respons = [`dellId: ${studID}`];
-        console.log(respons)
+        let response = studID;
+        console.log(response)
         $.ajax({
 
             url: '/selected',
-            data: respons,
+            data: {response},
             method: 'POST',
 
             success: function (data) {
-                console.log("asxc")
+                console.log(data)
             }
         });
     })
