@@ -1,6 +1,6 @@
 @extends('master')
 @section('content')
-<div class="main-content">
+{{-- <div class="main-content">
    <div class="main-content__header">
 
 
@@ -50,7 +50,7 @@
                 </svg>
     </a>
 
-   </div>
+   </div> --}}
     <h2 class="main-title">Загрузка файлов</h2>
     @if ($message = Session::get('success'))
         <div class="alert alert-success alert-block">
@@ -69,10 +69,10 @@
                     @endforeach
                     <div class="true">{{ success }}</div>
                 </ul>
-                
+
             </div>
         @endif
-        
+
     <div class="drop-area" id="drop-area">
         <form  action="{{ route('file.upload.post') }}" method="POST" enctype="multipart/form-data">
 

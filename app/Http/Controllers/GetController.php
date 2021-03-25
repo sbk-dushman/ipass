@@ -8,15 +8,15 @@ use Illuminate\Http\Request;
 
 class GetController extends Controller
 {
-    public function group() 
+    public function group()
     {   //21
-        $groups = Group::paginate(6);
+        $groups = Group::paginate(24); //паказать прикол
         return view('Nhome', compact('groups'));
     }
 
-    public function group_table($groupname) 
+    public function group_table($groupname)
     {
-        $groups = Group::paginate(6);
+        $groups = Group::paginate(24);
         $students = ListStudent::where('group', $groupname)->orderBy('surname', 'ASC')->get();
         return view('tabelGroup', compact('groups', 'students'));
     }
