@@ -14,7 +14,8 @@ class MainController extends Controller
 {
     public function home(){
         $groups = Group::paginate(6);
-        return view('home', compact('groups'));
+        // return view('home', compact('groups'));
+        return view('Nhome', compact('groups'));
     }
 
     public function addCart(Request $request)
@@ -76,7 +77,7 @@ class MainController extends Controller
             $studId = $request->response;
             CardStudent::where('id', $studId)->delete();
         }
-        
+
     }
 
     public function searchPost()

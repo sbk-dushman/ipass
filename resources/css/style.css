@@ -2,7 +2,139 @@
 *{
     box-sizing: border-box;
 }
-body, html{
+/* новые стили  */
+
+  html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #07575b;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }.sidebar .container ul {
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+  }
+  .sidebar .container ul a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color .2s ease-in-out;
+  }
+  .link-list__item a{
+      height: 100%;
+  }
+  .sidebar .container ul a:hover {
+    background-color: #5a9299;
+  }
+
+  .grid-container {
+    padding-left: 10px;
+    padding-right: 10px;
+    height: 98%;
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    grid-template-rows: 1fr;
+    gap: 0px 0px;
+    grid-template-areas:
+    "sidebar content";
+    grid-gap: 20px;
+
+  }
+  .content {
+    grid-area: content;
+    }
+  .sidebar {
+    grid-area: sidebar;
+    border-radius: 3px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+  .sidebar .container {
+    height: 500px;
+    width: 80px;
+    background-color: #66a5ad;
+    border-radius: 3px;
+  }
+
+
+  .grid-containerr {
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 100px 1fr 1fr 100px;
+    gap: 20px 20px;
+    grid-template-areas:
+      "groups groups-name groups-name"
+      "groups table table"
+      "groups table table"
+      "pag-group pag-table pag-table";
+  }
+  .table {
+    grid-area: table;
+    background-color: #66a5ad;
+    border-radius: 3px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    border: 1px solid #01515f;
+  }
+  .groups-name {
+    grid-area: groups-name;
+    background-color:#66a5ad;
+    border-radius: 3px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    border: 1px solid #01515f;
+  }
+  .groups {
+    grid-area: groups;
+    background-color: #66a5ad;
+    border-radius: 3px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    border: 1px solid #01515f;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    padding: 10px 10px 10px 10px;
+    grid-gap: 10px;
+  }
+
+  .groups .box_group {
+    background-color: #c4dfe5;
+    border-radius: 3px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    border: 1px solid #9cb1b6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.1s ease-in-out;
+  }
+  .groups .box_group:hover {
+
+    transform: translateY(-4px);
+  }
+  .pag-group {
+    grid-area: pag-group;
+    background-color: #66a5ad;
+    border-radius: 3px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    border: 1px solid #01515f;
+  }
+  .pag-table {
+    grid-area: pag-table;
+    background-color: #66a5ad;
+    border-radius: 3px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    border: 1px solid #01515f;
+  }
+/* конец новых */
+/* body, html{
         text-align: center;
         color: #2c3e50;
         display: flex;
@@ -13,7 +145,7 @@ body, html{
         margin: 0;
         width: 100%;
         background-color: #fcfcfc;
-    }
+    } */
     ul>li{
         list-style-type: none;
     }
