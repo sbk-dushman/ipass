@@ -1,6 +1,7 @@
 @extends('Nhome')
 @section('tabel-group')
   <div class="table">
+      <h2 class="main-title">Список групп</h2>
     <table class="main-content select-list">
 
                             <tr>
@@ -73,7 +74,8 @@
                     </table>
    </div>
   <div class="groups-name">
-
+    <h2 class="man-title">Состав группы </h2>
   </div>
-  <div class="pag-table"></div>
+  <div class="pag-table">
+  </div>
 @endsection
