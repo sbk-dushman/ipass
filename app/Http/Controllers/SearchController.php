@@ -14,6 +14,7 @@ class SearchController extends Controller
     public function searchPost(Request $request)
     {
         // dd($request->all());
+
         if( $request->search_req ) {
             $data = $request->search_req;
             $results = ListStudent::where('name', 'LIKE', '%' . $data . '%')
@@ -27,8 +28,8 @@ class SearchController extends Controller
 
             return view('search', compact('results', 'cartStudents'));
         }
-        elseif( $request->response ) {
-            $data = $request->response;
+        elseif($request->test) {
+            $data = $request->test;
             $StudName = ListStudent::where('id', $data)
                                     ->value('name');
             $StudSurname = ListStudent::where('id', $data)
@@ -44,7 +45,7 @@ class SearchController extends Controller
                 'group' => $StudGroup
             ])->value('id');
             if( $issetName == true ) {
-                return redirect()->back();
+                // return redirect()->back();
             }else {
                 DB::table('card_students')->insert([
                     'name' => $StudName,
