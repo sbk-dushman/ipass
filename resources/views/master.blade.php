@@ -16,7 +16,7 @@
                 <div class="container">
                     <ul class="link-list">
                         <li class="link-list__item"><a href="{{ route('groups') }}"><i class="fas fa-table"></i></a></li>
-                        <li class="link-list__item"><a href="{{ route('search-get') }}">2</a></li>
+                        <li class="link-list__item"><a href="{{ route('search-get') }}"><i class="fas fa-search"></i></a></li>
                         <li class="link-list__item"><a href="#">3</a></li>
                         <li class="link-list__item"><a href="#">4</a></li>
                         <li class="link-list__item"><a href="#">5</a></li>
