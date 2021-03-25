@@ -167,6 +167,9 @@ html, body {
     border-radius: 3px;
     /* box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); */
     border: 1px solid lightgray;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .pag-table {
@@ -445,7 +448,7 @@ a {
 }
 
 .pagination li {
-    margin: 0 5px;
+    margin: 0;
 }
 
 .tab-content {
@@ -509,16 +512,57 @@ a {
 }
 
 .pagination {
-    padding-top: 60px;
+
+    padding: 0;
     display: inline-flex;
     justify-content: center;
     align-items: center;
 }
 
-.pagination__item a {
-    padding: 10px;
-    border: 1px solid #629cd1;
-    transition: 0.3s opacity;
+.page-item {
+    padding: 15px;
+    border-top: 1px solid lightgray;
+    border-bottom: 1px solid lightgray;
+}
+.page-item:first-child {
+    padding: 15px;
+    border-top: 1px solid lightgray;
+    border-left: 1px solid lightgray;
+    border-bottom: 1px solid lightgray;
+}
+
+.page-item:last-child {
+    padding: 15px;
+    border-top: 1px solid lightgray;
+    border-right: 1px solid lightgray;
+    border-bottom: 1px solid lightgray;
+}
+
+.active{
+    background-color: lightgray;
+}
+
+.active:hover{
+    background-color: lightgray;
+}
+
+.page-item:hover {
+    background-color: rgb(235, 235, 235);
+}
+
+.page-item:first-child {
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+}
+
+.page-item:last-child {
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
+
+.active {
+    /* border: 1px solid lightgray;
+    padding: 10px; */
 }
 
 .pagination__item a:hover, .main-btn:hover, .group-title:hover, .select-section__btn-print:hover, .select_section__btn-remove:hover {
