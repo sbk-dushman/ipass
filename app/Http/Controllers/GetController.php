@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\CardStudent;
 use App\Group;
 use App\ListStudent;
 use Illuminate\Http\Request;
+use Illuminate\Support\Arr;
 
 class GetController extends Controller
 {
@@ -16,9 +18,20 @@ class GetController extends Controller
 
     public function group_table($groupname)
     {
-        $groups = Group::paginate(6);
         $students = ListStudent::where('group', $groupname)->orderBy('surname', 'ASC')->get();
-        return view('tabelGroup', compact('groups', 'students'));
+        $cart = CardStudent::get();
+        $datas = [];
+        foreach( $cart as $item ) {
+            $datas = Arr::prepend($datas, [
+                'name' => $item->name,
+                'surname' => $item->surname,
+                'lastname' => $item->lastname,
+                'group' => $item->group
+            ]);
+        }
+        $groups = Group::paginate(6);
+
+        return view('tabelGroup', compact('groups', 'students', 'cart', 'datas'));
     }
 
     public function getPersonal()

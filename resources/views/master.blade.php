@@ -20,7 +20,7 @@
                         <li class="link-list__item"><a href="{{ route('selected-URL') }}"><i class="fas fa-user-check"></i></a></li>
                         <li class="link-list__item"><a href="{{ route('file.upload') }}"><i class="fas fa-file-download"></i></a></li>
                         <li class="link-list__item"><a href=""><i class="fas fa-sync-alt"></i></a></li>
-                        <li class="link-list__item"><a href="{{ route('personal') }}"><i class="fas fa-user-graduate"></i></a></li>
+                        <li class="link-list__item"><a href="{{ route('personal') }}"><i class="fas fa-user-tie"></i></a></li>
                     </ul>
                 </div>
             </aside>

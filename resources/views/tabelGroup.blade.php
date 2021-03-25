@@ -27,15 +27,21 @@
                         {{ $student->lastname }}
                     </td>
                     <td>
-
+                        
                     </td>
-                    <td>
-                        <button type="submit"
-                                name="add_to_cart"
-                                value="{{ $student->id }}"
-                        >  
-                            <i class="fas fa-plus-circle"></i>
-                        </button>
+                    <td class="td1">
+                    
+                    
+                        @php
+                            $test = false;
+                            foreach ($cart as $value) {
+                                if ($value->name != $student->name) {
+                                    continue;
+                                }
+                                echo 'asdad';
+                                $test = true;
+                            }
+                        @endphp
                     </td>
                 </form>
             </tr>
@@ -43,6 +49,7 @@
         </tbody>
     </table>                    
 </div>
+
 <div class="groups-name">
     <h2 class="man-title">Состав группы </h2>
 </div>
