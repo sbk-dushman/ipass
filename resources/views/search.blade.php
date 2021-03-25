@@ -3,7 +3,13 @@
 <div class="grid-container-search">
     <div class="tabel_personal"></div>
     <div class="tabel_students"></div>
-    <div class="search_box"></div>
+    <div class="search_box">
+           <form action="{{ route('search-get') }}" method="POST">
+                    @csrf
+                    <input required id="search__inpput" placeholder="Введите запрос"  class="search-input" name="search_req" type="text">
+                    <button type="submit" id="search-btn" сlass="main-btn">Найти</button>
+
+                </form></div>
 </div>
     {{-- <div class="main-content search"> --}}
          {{-- <div class="main-content__header">
@@ -45,7 +51,7 @@
                                         <td>{{$item->lastname}}</td>
                                         <td>{{$item->name}}</td>
                                         <td>{{$item->surname}}</td>
-                                        
+
                                         <td>
                                             <a href="{{ route('group-URL') }}{{ $item->group }}">{{$item->group_rus}}</a>
                                         </td>
