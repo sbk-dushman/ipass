@@ -28,6 +28,8 @@ Route::post('file-upload', 'FileUploadController@fileUploadPost')->name('file.up
 Route::get('/print', 'PrintController@getPrint')->name('print-get');
 
 Route::post('/search', 'SearchController@searchPost')->name('search-post');
+
+Route::post('/search1', 'SearchController@searchAddPost')->name('search-post');
 Route::get('/search', 'SearchController@searchGet')->name('search-get');
 
 
