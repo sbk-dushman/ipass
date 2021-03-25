@@ -119,7 +119,7 @@ html, body {
     grid-area: table;
     background-color: #fff;
     border-radius: 3px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    /* box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); */
     border: 1px solid lightgray;
 }
 
@@ -140,15 +140,15 @@ html, body {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-    padding: 10px 10px 10px 10px;
-    grid-gap: 10px;
+    /* padding: 10px 10px 10px 10px; */
+    /* grid-gap: 10px; */
 }
 
 .groups .box_group {
     background-color: white;
     /* border-radius: 3px; */
     /* box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); */
-    border: 1px solid rgb(241, 241, 241);
+    /* border: 1px solid rgb(241, 241, 241); */
     display: flex;
     align-items: center;
     justify-content: center;
