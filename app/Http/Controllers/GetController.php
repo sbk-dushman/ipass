@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\CardStudent;
 use App\Group;
 use App\ListStudent;
+use App\Personal;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 
@@ -36,6 +37,9 @@ class GetController extends Controller
 
     public function getPersonal()
     {
-        return view('personal');
+        $personal = Personal::get();
+        return view('personal', compact('personal'));
     }
+
+    
 }
