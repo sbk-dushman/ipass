@@ -122,10 +122,12 @@ html, body {
     border-radius: 4px;
 }
 .table {
+    margin: 0;
     grid-area: table;
     background-color: #fff;
     border-radius: 3px;
     /* box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); */
+    padding: 20px;
     border: 1px solid lightgray;
 }
 
@@ -223,6 +225,7 @@ ul {
 }
 
 button {
+    background: transparent;
     box-shadow: none;
     border: none;
     background: none;
@@ -230,6 +233,8 @@ button {
      opacity: 1;
     transition: 0.3s opacity;
 }
+
+
 
 .main-btn, #search-btn {
     background-color: #629cd1;
@@ -297,13 +302,16 @@ svg {
 }
 
 .select-list__item {
-    padding-bottom: 10px;
+    height: 40px;
+    /* padding-bottom: 100px; */
     transition: 0.3s;
     transition-property: background-color;
 }
 
-.select-list__item:hover {
-    background-color: rgba(97, 155, 209, 0.233);
+
+
+.select-list__item:hover{
+    background-color: lightgrey;
 }
 
 .group-title::before {
@@ -611,9 +619,6 @@ a {
     vertical-align: middle;
 }
 
-button {
-    background-color: none;
-}
 
 .container-personal,.container-selected,.drop-area-container,.non-select-alert  {
     height: 100%;
@@ -640,11 +645,20 @@ button {
 }
 
 .select-list {
-    min-width: 88%;
+    /* min-height: 100%; */
+    border: 1px solid lightgray;
+}
+
+.select-list tr {
+    height: 40px;
 }
 
 .select-list__remove-section table {
     DISPLAY: table-caption;
+}
+
+button .add_logo:hover{
+    color: rgb(7, 209, 7);
 }
 
 .table-conrainer {
