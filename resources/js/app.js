@@ -5,14 +5,15 @@ function declOfNum(number, titles) {
 }
 function getStudId(contex,url) {
     let studID = $(contex).attr("data-studID");
-    let response = studID;
+    let test = studID;
     $.ajax({
 
-        url: '/'+url,
-        data: { response },
+        url: url,
+        data: { test },
         method: 'POST',
 
         success: function (data) {
+          console.log(data);
         }
     });
 }
@@ -53,8 +54,7 @@ $(document).ready(function() {
 
     $('.btn_add_from_search').on("click", function (e) {
         e.preventDefault();
-        // console.log(1)
-        getStudId(this,'search');
+        getStudId(this, '/search');
         // старая версия
         // let req= $(".search-result-form").serializeArray()
         // let carentJson = JSON.stringify(req);

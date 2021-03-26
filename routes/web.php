@@ -19,11 +19,13 @@ use App\Http\Controllers\SearchController;
 Route::get('/', 'GetController@group')->name('groups');
 Route::get('/group{groupname?}', 'GetController@group_table')->name('group-URL');
 
+
+Route::get('/personal', 'GetController@getPersonal')->name('personal');
 // Route::get('/group','MainController@home')->name('home-URL');
 // Route::get('/group{groupname?}','MainController@group');
 
 // Route::match(['get', 'post'], '/group{groupname?}','MainController@group')->name('group-URL');
-// Route::post('/group{groupname?}','MainController@addCart');
+Route::post('/group{groupname?}','MainController@addCart');
 Route::get('/selected','MainController@selected')->name('selected-URL');
 Route::post('/selected','MainController@selectedDelete');
 Route::post('/print','PrintController@getPrint');
@@ -35,7 +37,6 @@ Route::get('/print', 'PrintController@getPrint')->name('print-get');
 
 Route::post('/search', 'SearchController@searchPost')->name('search-post');
 
-Route::post('/search1', 'SearchController@searchAddPost')->name('search-post');
 Route::get('/search', 'SearchController@searchGet')->name('search-get');
 
 

@@ -31,7 +31,7 @@
                             <a href="{{ route('group-URL') }}{{ $item->group }}">{{$item->group_rus}}</a>
                         </td>
                         <td>
-                            <button data_addId="{{$item->id}}" id="btn_add_from_search" class="main-btn">
+                            <button data-studID="{{$item->id}}" id="btn_add_from_search" class="btn_add_from_search main-btn">
                                 Добавить
                             </button>
                         </td>
