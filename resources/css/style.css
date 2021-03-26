@@ -609,7 +609,7 @@ a {
     padding: 10px; */
 }
 
-.pagination__item a:hover, .main-btn:hover, .group-title:hover, .select-section__btn-print:hover, .select_section__btn-remove:hover, #search-btn:hover button:hover {
+.pagination__item a:hover, .main-btn:hover, .group-title:hover, .select-section__btn-print:hover, .select_section__btn-remove:hover, #search-btn:hover, button:hover {
     opacity: 0.5;
 }
 

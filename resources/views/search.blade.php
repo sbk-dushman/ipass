@@ -34,8 +34,8 @@
                             <a href="{{ route('group-URL') }}{{ $item->group }}">{{$item->group_rus}}</a>
                         </td>
                         <td>
-                            <button data-studID="{{$item->id}}" id="btn_add_from_search" class="btn_add_from_search main-btn">
-                                Добавить
+                            <button data-studID="{{$item->id}}" id="btn_add_from_search" class="btn_add_from_search">
+                           <i class="fas fa-plus-circle"></i>
                             </button>
                         </td>
 
