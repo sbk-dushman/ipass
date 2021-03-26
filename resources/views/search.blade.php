@@ -1,15 +1,18 @@
 @extends('master')
 @section('content')
 <div class="grid-container-search">
-    <div class="tabel_personal"></div>
+    {{-- <div class="tabel_personal"></div> --}}
     <div class="tabel_students">
-        <h2 class="main-title">Поиск по студентам</h2>
+        <h2 class="main-title">Поиск</h2>
         @if  ($results==NULL)
         <div class="alert alert-success alert-block">
           Пока нет резултвтов
             </div>
 
         @elseif ($results->count()<=0)
+                            <div class="alert alert-success alert-block">
+                                Ничего не нашлось
+                             </div>
         @else
         <table class="main-content select-list">
 

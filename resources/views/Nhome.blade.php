@@ -31,8 +31,18 @@
 					@endif
 				</div>
 			@show
+            @if (Request::is('/'))
+                 {{-- <div class="non-select-alert">
+                    <h2> Группа не выбрана..</h2>
+                 </div> --}}
 
-			@yield('tabel-group')
+                       @else
+                       @yield('tabel-group')
+            @endif
+
+
+
+
 	</div>
 
 
