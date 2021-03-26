@@ -10,7 +10,7 @@ class GetController extends Controller
 {
     public function group()
     {   //21
-        $groups = Group::paginate(24); //паказать прикол
+        $groups = Group::paginate(24);
         return view('Nhome', compact('groups'));
     }
 
