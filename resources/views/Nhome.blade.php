@@ -12,9 +12,10 @@
 	<div class="grid-containerr">
 			@section('groups')
 				<div class="groups">
+
 					@foreach ($groups as $group)
-						<div class="box_group">
-							<a href="{{route('group-URL')}}{{$group->codegroup}}">{{$group->group}}</a>
+						<div class="box_group ">
+							<a  class="group-title" href="{{route('group-URL')}}{{$group->codegroup}}">{{$group->group}}</a>
 						</div>
 					@endforeach
 				</div>
@@ -30,7 +31,7 @@
 					@endif
 				</div>
 			@show
-			
+
 			@yield('tabel-group')
 	</div>
 
