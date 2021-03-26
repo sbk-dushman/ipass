@@ -1,6 +1,6 @@
 @extends('master')
 @section('content')
-<div class="main-content">
+<div class="main-content container-selected">
    {{-- <div class="main-content__header">
 
 
@@ -59,13 +59,13 @@
    </div> --}}
 
     <h2 class="main-title">Печать</h2>
-    <div class="table_conrainer">
+    <div class="table_conrainer ">
                      @if ($studentDatas_s->total()<=0)
                     <div>
                         Список для печати пуст...
                     </div>
                 @else
-                <table class="main-content select-list">
+        <table class="main-content select-list">
             {{-- <caption></caption> --}}
             <tr>
                 <th>Фамилия:</th>

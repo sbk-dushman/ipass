@@ -1,15 +1,18 @@
 @extends('master')
 @section('content')
 <div class="grid-container-search">
-    <div class="tabel_personal"></div>
+    {{-- <div class="tabel_personal"></div> --}}
     <div class="tabel_students">
-        <h2 class="main-title">Поиск по студентам</h2>
+        <h2 class="main-title">Поиск</h2>
         @if  ($results==NULL)
         <div class="alert alert-success alert-block">
           Пока нет резултвтов
             </div>
 
         @elseif ($results->count()<=0)
+                            <div class="alert alert-success alert-block">
+                                Ничего не нашлось
+                             </div>
         @else
         <table class="main-content select-list">
 
@@ -31,8 +34,8 @@
                             <a href="{{ route('group-URL') }}{{ $item->group }}">{{$item->group_rus}}</a>
                         </td>
                         <td>
-                            <button data-studID="{{$item->id}}" id="btn_add_from_search" class="btn_add_from_search main-btn">
-                                Добавить
+                            <button data-studID="{{$item->id}}" id="btn_add_from_search" class="btn_add_from_search">
+                           <i class="fas fa-plus-circle"></i>
                             </button>
                         </td>
 

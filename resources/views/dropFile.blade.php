@@ -51,6 +51,8 @@
     </a>
 
    </div> --}}
+   <div class="drop-area-container">
+
     <h2 class="main-title">Загрузка файлов</h2>
     @if ($message = Session::get('success'))
         <div class="alert alert-success alert-block">
@@ -87,6 +89,6 @@
 
     </div>
 
-
+   </div>
 
 @endsection
