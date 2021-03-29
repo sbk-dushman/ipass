@@ -93,9 +93,8 @@
                         </td>
                         <td>
                             <select name="{{ $data->id }}">
-                                <option value="1">1</option>
-                                <option selected value="2">2</option>
-                                <option value="3">3</option>
+                                <option value="1">Преподователь</option>
+                                <option selected value="2">Студент</option>
                             </select>
                         </td>
                         <td>

@@ -29,19 +29,15 @@
                     <td>
                         
                     </td>
-                    <td class="td1">
-                    
-                    
-                        @php
-                            $test = false;
-                            foreach ($cart as $value) {
-                                if ($value->name != $student->name) {
-                                    continue;
-                                }
-                                echo 'asdad';
-                                $test = true;
-                            }
-                        @endphp
+                    <td class="td">
+                        <button 
+                            class="btn_add"
+                            type="submit"
+                            name="add_to_cart"
+                            value="{{ $student->id }}"
+                        >  
+                            <i class="add_logo fas fa-plus-circle"></i>
+                        </button>
                     </td>
                 </form>
             </tr>

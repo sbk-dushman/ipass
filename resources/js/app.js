@@ -8,7 +8,7 @@ function getStudId(contex,url) {
     let test = studID;
     $.ajax({
 
-        url: url,
+        url: '/'+url,
         data: { test },
         method: 'POST',
 
@@ -49,31 +49,34 @@ $fileInput.on('change', function() {
 // список выбора
 $(document).ready(function() {
 
-
     // Добавить из  поиска
 
     $('.btn_add_from_search').on("click", function (e) {
         e.preventDefault();
-        getStudId(this, '/search');
-        // старая версия
-        // let req= $(".search-result-form").serializeArray()
-        // let carentJson = JSON.stringify(req);
-        // console.log(carentJson)
-    //     $.ajax({
+        let studID = $(this).attr("data-studID");
+		let test = studID;
+		$.ajax({
 
-    //         url: '/search',
-    //         data: carentJson,
-    //         method: 'POST',
+			url: '/search',
+			data: { test },
+			method: 'POST',
+		});
+    });
 
-    //     success: function(data) {
-    //         console.log('урааа');
-    //     }
-    // });
-});
     $('.select_section__btn-remove').on("click", function(e) {
-        e.preventDefault();
-        getStudId(this,'selected');  //функция приёма id и url для ajax запроса
+        e.preventDefault();  //функция приёма id и url для ajax запроса
         $(this).closest('.select-list__item').remove();
+		let studid = $(this).attr("data-studID");
+		$.ajax({
+
+			url: '/selected',
+			data: { studid },
+			method: 'POST',
+	
+			success: function (data) {
+			  console.log(data);
+			}
+		});
     })
     // поисковой запрос
 
